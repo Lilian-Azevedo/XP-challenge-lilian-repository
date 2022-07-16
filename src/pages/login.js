@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { func, string } from 'prop-types';
 import { saveUser } from '../redux/actions/index';
@@ -6,21 +6,26 @@ import verifyValidation from '../validations/validateEmail';
 import { useHistory } from 'react-router-dom';
 
 const INITIAL_STATE = {
-    inputEmail: '',
-    inputPassword: '',
-    disabled: true,
-  }
+  inputEmail: '',
+  inputPassword: '',
+}
 
 const Login = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [userData, setUserData] = useState(INITIAL_STATE);
+  const [disableButton, setDisableButton] = useState(true);
 
+  useEffect(() => {
+    if(verifyValidation(userData)) {
+      setDisableButton(false);
+      return;
+    }
+    setDisableButton(true);
+  }, [userData]);
+  
   const handleInput = ({ target: { name, value } }) => {
-    setUserData(
-      { [name]: value },
-      () => setUserData({ disabled: verifyValidation(userData) }),
-    );
+    setUserData(prev => ({...prev, [name]: value }));
   }
 
   const handleClick = () => {
@@ -33,7 +38,7 @@ const Login = () => {
     if (event.key === 'Enter') return handleClick();
   }
 
-  const { inputEmail, inputPassword, disabled } = userData;
+  const { inputEmail, inputPassword } = userData;
 
   return (
     <div>
@@ -74,7 +79,7 @@ const Login = () => {
             <button
                 type="button"
                 onClick={ handleClick }
-                disabled={ disabled }
+                disabled={ disableButton }
             >
             Entrar
             </button>

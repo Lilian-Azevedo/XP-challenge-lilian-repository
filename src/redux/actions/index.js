@@ -6,3 +6,10 @@ export const saveUser = (user) => (
     payload: user,
   }
 );
+
+export const disabledButton = (isAble) => (
+  {
+    type: SET_USER_INFOS,
+    payload: isAble,
+  }
+);

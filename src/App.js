@@ -7,7 +7,6 @@ import login from './pages/login';
 function App() {
   return (
     <div>
-      <h1>Bem vinda</h1>
       <Switch>
         <Route exact path="/" component={ mainPage } />
         <Route path="/create" component={ createUser } />

@@ -1,6 +1,6 @@
 import { SET_USER_INFOS } from './actionTypes';
 
-export const setUserInfos = (user) => (
+export const saveUser = (user) => (
   {
     type: SET_USER_INFOS,
     payload: user,

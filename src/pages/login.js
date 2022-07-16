@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { connect, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { func, string } from 'prop-types';
-import { saveUser } from '../actions';
+import { saveUser } from '../redux/actions/index';
 import verifyValidation from '../validations/validateEmail';
-import '../styles/login.css';
 import { useHistory } from 'react-router-dom';
 
 const INITIAL_STATE = {
@@ -20,12 +19,12 @@ const Login = () => {
   const handleInput = ({ target: { name, value } }) => {
     setUserData(
       { [name]: value },
-      () => setUserData({ disabled: verifyValidation() }),
+      () => setUserData({ disabled: verifyValidation(userData) }),
     );
   }
 
   const handleClick = () => {
-    const { inputEmail } = state;
+    const { inputEmail } = userData;
     dispatch(saveUser(inputEmail))
     history.push('/carteira');
   }
@@ -37,12 +36,12 @@ const Login = () => {
   const { inputEmail, inputPassword, disabled } = userData;
 
   return (
-    <div className="page-login">
-      <div className="area-login">
+    <div>
+      <div>
         <div>
             <h1>Acesse sua conta</h1>
         </div>
-        <div>
+        <section>
             <input
                 type="text"
                 onChange={ handleInput }
@@ -60,7 +59,7 @@ const Login = () => {
                 name="inputPassword"
                 placeholder="Senha"
             />
-        </div>
+        </section>
         <div>
             <h1>OU</h1>
             <h2>Faça login como {}</h2>

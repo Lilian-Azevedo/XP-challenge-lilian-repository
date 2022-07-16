@@ -30,7 +30,7 @@ const Login = () => {
 
   const handleClick = () => {
     const { inputEmail } = userData;
-    dispatch(saveUser(inputEmail))
+    dispatch(saveUser(inputEmail));
     history.push('/carteira');
   }
 

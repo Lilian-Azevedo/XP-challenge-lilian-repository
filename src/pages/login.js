@@ -4,6 +4,7 @@ import { func, string } from 'prop-types';
 import { saveUser } from '../redux/actions/index';
 import verifyValidation from '../validations/validateEmail';
 import { useHistory } from 'react-router-dom';
+import { addAcessUserToLocal } from '../services/localStorage';
 
 const INITIAL_STATE = {
   inputEmail: '',
@@ -28,9 +29,14 @@ const Login = () => {
     setUserData(prev => ({...prev, [name]: value }));
   }
 
+  const handleClickBack = () => {
+    history.push('/');
+  }
+
   const handleClick = () => {
     const { inputEmail } = userData;
     dispatch(saveUser(inputEmail));
+    addAcessUserToLocal({ user: inputEmail, acessed: new Date()});
     history.push('/carteira');
   }
 
@@ -70,19 +76,19 @@ const Login = () => {
             <h2>Faça login como {}</h2>
         </div>
         <div>
-            <button
-                type="button"
-                onClick={ handleClick }
-            >
-            Voltar
-            </button>
-            <button
-                type="button"
-                onClick={ handleClick }
-                disabled={ disableButton }
-            >
-            Entrar
-            </button>
+          <button
+              type="button"
+              onClick={ handleClickBack }
+          >
+          Voltar
+          </button>
+          <button
+              type="button"
+              onClick={ handleClick }
+              disabled={ disableButton }
+          >
+          Entrar
+          </button>
         </div>
     </div>
     </div>);

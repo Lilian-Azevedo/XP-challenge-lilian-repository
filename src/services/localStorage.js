@@ -3,7 +3,7 @@ export const getUsersFromLocal = () => JSON
 export const setUserToLocal = (newUser) => localStorage
   .setItem('userActioners', JSON.stringify(newUser));
 
-export const addUserToLocal = (user) => {
+export const addAcessUserToLocal = (user) => {
   if (!JSON.parse(localStorage.getItem('userActioners'))) {
     localStorage.setItem('userActioners', JSON
       .stringify([]));

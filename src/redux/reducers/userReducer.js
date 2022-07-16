@@ -1,7 +1,7 @@
 import { DISABLE_BUTTON, SET_USER_INFOS } from "../actions/actionTypes";
 
 const INITIAL_STATE = {
-  user: { name: '', email: '' },
+  user: { email: '' },
   buttonLogin: true,
 };
 

@@ -10,6 +10,6 @@ export const addAcessUserToLocal = (user) => {
   }
   if (user) {
     const userStored = getUserFromLocal();
-    setUserToLocal([...userStored, user]);
+    setUserToLocal([user, ...userStored]);
   }
 };

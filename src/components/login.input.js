@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import verifyValidation from '../validations/validateEmail';
-import { addAcessUserToLocal } from '../services/localStorage';
-import { disabledButton } from '../redux/actions';
+import { disabledButton, saveUser } from '../redux/actions';
 
 const INITIAL_STATE = {
   inputEmail: '',
@@ -15,6 +14,7 @@ const InputLogin = () => {
 
   useEffect(() => {
     if(verifyValidation(userData)) {
+      dispatch(saveUser(userData.inputEmail));
       dispatch(disabledButton(false));
       return;
     }
@@ -25,10 +25,6 @@ const InputLogin = () => {
     setUserData(prev => ({...prev, [name]: value }));
   }
 
-  const handleEnterClick = (event) => {
-    if (event.key === 'Enter') return handleClick();
-  }
-
   const { inputEmail, inputPassword } = userData;
 
   return (
@@ -36,7 +32,7 @@ const InputLogin = () => {
         <input
             type="text"
             onChange={ handleInput }
-            onKeyDown={ handleEnterClick }
+            // onKeyDown={ handleEnterClick }
             value={ inputEmail }
             name="inputEmail"
             placeholder="Email"
@@ -45,7 +41,7 @@ const InputLogin = () => {
             autoComplete="off"
             type="password"
             onChange={ handleInput }
-            onKeyDown={ handleEnterClick }
+            // onKeyDown={ handleEnterClick }
             value={ inputPassword }
             name="inputPassword"
             placeholder="Senha"

@@ -7,41 +7,39 @@ const AvailableStocks = () => {
     return (
       <div>
         <h1>Available</h1>
-        <table>
-        <thead>
-          <tr>
-            {listHead.map(item => (<th>{ item }</th>))}
-          </tr>
-        </thead>
-        <tbody>
-          {arrayTest
-            .map(({ name, qtd, value }, index) => (
-              <tr key={ index }>
-                <td>{ name }</td>
-                <td>{ qtd }</td>
-                <td>{ value }</td>
-                <td>
-                  <button
-                    id={ id }
-                    data-testid="edit-btn"
-                    type="button"
-                    onClick={ () => expenseForEdit(id) }
-                  >
-                    Editar
-                  </button>
-                  <button
-                    id={ id }
-                    data-testid="delete-btn"
-                    type="button"
-                    onClick={ () => expenseForRemove(id) }
-                  >
-                    Excluir
-                  </button>
-                </td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
+        <div>
+            <table>
+            <thead>
+            <tr>
+                {listHead.map(item => (<th>{ item }</th>))}
+            </tr>
+            </thead>
+            <tbody>
+            {arrayTest
+                .map(({ name, qtd, value }, index) => (
+                <tr key={ index }>
+                    <td>{ name }</td>
+                    <td>{ qtd }</td>
+                    <td>{ value }</td>
+                    <td>
+                    <button
+                        type="button"
+                        // onClick={  }
+                    >
+                        C
+                    </button>
+                    <button
+                        type="button"
+                        // onClick={ }
+                    >
+                        V
+                    </button>
+                    </td>
+                </tr>
+                ))}
+            </tbody>
+            </table>
+        </div>
       </div>
     )
 }

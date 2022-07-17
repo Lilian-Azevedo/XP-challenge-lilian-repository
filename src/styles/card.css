@@ -1,23 +1,19 @@
-.swiper-button-prev::after,
-.swiper-button-next::after {
-    content: '';
+.button {
+    display: inline-block;
+    background-color: gray;
+    color: #fff;
+    padding: 1rem;
+    border-radius: .5rem;
+    /* font-weight: 500; */
 }
 
-.swiper-portfolio-icon {
-    font-size: 3rem;
-    color: var(--first-color);
+.button:hover {
+    background-color: rgb(192, 161, 161);
 }
 
-.swiper-pagination-bullets {
-    margin-bottom: -2.5rem;
+.button---flex {
+    display: inline-flex;
+    align-items: center;
 }
 
-.swiper-pagination-bullet-active {
-    background-color:var(--first-color);
-}
 
-.swiper-button-prev,
-.swiper-button-next,
-.swiper-pagination-bullet {
-    outline: none;
-}

@@ -3,7 +3,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
+import '../styles/slides.css';
+import Card from './Card';
 // import Card from './Card';
+
+const arrayTest = [{ name: 'Azul4', qtd: 100, value: 350 }, { name: 'Petr4', qtd: 150, value: 350 }, { name: 'Vale4',  qtd: 100, value: 350 }, { name: 'Petr4',  qtd: 100, value: 350 }]
 
 const UserStocks = () => {
   return (
@@ -13,52 +17,23 @@ const UserStocks = () => {
       </div>
       <section className='container-stocks-user'>
         <div>
-          <p>Aqui fica a lista</p>
-          <div>
-            <h3>Ação</h3>
-            <h3>Quantidade</h3>
-            <h3>Valor</h3>
-          </div>
+          <h4>Ação</h4>
+          <h4>Quantidade</h4>
+          <h4>Valor</h4>
         </div>
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={50}
           slidesPerView={2}
           navigation
-          pagination={{ clickable: true }}>
-          <SwiperSlide>
-            <h1>Teste1</h1>
-            {/* <Card /> */}
-          </SwiperSlide>
-
-            <SwiperSlide>
-                <h1>Teste2</h1>
-            </SwiperSlide>
-
-            <SwiperSlide>
-                <h1>Teste3</h1>
-            </SwiperSlide>
-
-            <SwiperSlide>
-                <h1>Teste</h1>
-            </SwiperSlide>
+          pagination={{ clickable: true }}
+          loop={ true }>
+            {arrayTest.map((item, index) => (
+              <SwiperSlide key={index}>
+                <Card {...item}/>
+              </SwiperSlide>
+            ))}           
         </Swiper>
-        {/* <section>
-          <div>
-            <div>
-            {/* Fazer um map aqui dentro
-              <p>Aqui fica os cards</p>
-            </div>
-          </div>
-          <div class="swiper-button-next">
-              <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
-          </div>
-          <div class="swiper-button-prev">
-            <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
-          </div>
-
-          <div class="swiper-pagination" />
-        </section> */}
       </section>
     </div>
   )

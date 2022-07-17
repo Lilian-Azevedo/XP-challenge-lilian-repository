@@ -1,0 +1,23 @@
+.swiper {
+    padding: 32px;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: rgb(241, 205, 0);
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: rgb(241, 205, 0);
+}
+
+.container-stocks-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

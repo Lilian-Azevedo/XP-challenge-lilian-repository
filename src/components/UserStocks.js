@@ -1,4 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import 'swiper/swiper-bundle.min.css';
+import 'swiper/swiper.min.css';
+// import Card from './Card';
 
 const UserStocks = () => {
   return (
@@ -15,10 +20,33 @@ const UserStocks = () => {
             <h3>Valor</h3>
           </div>
         </div>
-        <section>
+        <Swiper
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          spaceBetween={50}
+          slidesPerView={2}
+          navigation
+          pagination={{ clickable: true }}>
+          <SwiperSlide>
+            <h1>Teste1</h1>
+            {/* <Card /> */}
+          </SwiperSlide>
+
+            <SwiperSlide>
+                <h1>Teste2</h1>
+            </SwiperSlide>
+
+            <SwiperSlide>
+                <h1>Teste3</h1>
+            </SwiperSlide>
+
+            <SwiperSlide>
+                <h1>Teste</h1>
+            </SwiperSlide>
+        </Swiper>
+        {/* <section>
           <div>
             <div>
-            {/* Fazer um map aqui dentro */}
+            {/* Fazer um map aqui dentro
               <p>Aqui fica os cards</p>
             </div>
           </div>
@@ -30,7 +58,7 @@ const UserStocks = () => {
           </div>
 
           <div class="swiper-pagination" />
-        </section>
+        </section> */}
       </section>
     </div>
   )

@@ -48,48 +48,46 @@ const Login = () => {
   return (
     <div>
       <div>
-        <div>
-            <h1>Acesse sua conta</h1>
-        </div>
-        <section>
-            <input
-                type="text"
-                onChange={ handleInput }
-                onKeyDown={ handleEnterClick }
-                value={ inputEmail }
-                name="inputEmail"
-                placeholder="Email"
-            />
-            <input
-                autoComplete="off"
-                type="password"
-                onChange={ handleInput }
-                onKeyDown={ handleEnterClick }
-                value={ inputPassword }
-                name="inputPassword"
-                placeholder="Senha"
-            />
-        </section>
-        <div>
-            <h1>OU</h1>
-            <h2>Faça login como {}</h2>
-        </div>
-        <div>
-          <button
-              type="button"
-              onClick={ handleClickBack }
-          >
-          Voltar
-          </button>
-          <button
-              type="button"
-              onClick={ handleClick }
-              disabled={ disableButton }
-          >
-          Entrar
-          </button>
-        </div>
-    </div>
+        <h1>Acesse sua conta</h1>
+      </div>
+      <section>
+        <input
+          type="text"
+          onChange={ handleInput }
+          onKeyDown={ handleEnterClick }
+          value={ inputEmail }
+          name="inputEmail"
+          placeholder="Email"
+        />
+        <input
+          autoComplete="off"
+          type="password"
+          onChange={ handleInput }
+          onKeyDown={ handleEnterClick }
+          value={ inputPassword }
+          name="inputPassword"
+          placeholder="Senha"
+        />
+      </section>
+      <div>
+        <h1>OU</h1>
+        <h2>Faça login como {}</h2>
+      </div>
+      <div>
+        <button
+            type="button"
+            onClick={ handleClickBack }
+        >
+        Voltar
+        </button>
+        <button
+            type="button"
+            onClick={ handleClick }
+            disabled={ disableButton }
+        >
+        Entrar
+        </button>
+      </div>
     </div>);
 }
 

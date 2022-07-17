@@ -8,7 +8,7 @@ const AvailableStocks = () => {
       <div>
         <h1>Available</h1>
         <div>
-            <table>
+          <table>
             <thead>
             <tr>
                 {listHead.map(item => (<th>{ item }</th>))}
@@ -38,7 +38,7 @@ const AvailableStocks = () => {
                 </tr>
                 ))}
             </tbody>
-            </table>
+          </table>
         </div>
       </div>
     )

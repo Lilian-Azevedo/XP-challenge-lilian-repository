@@ -15,6 +15,7 @@ function App() {
         <Route exact path="/" component={ Login } />
         <Route path="/wallet" component={ WalletStocks } />
         <Route path="/buy" component={ BuySaleStocks } />
+        <Route path="/sell" component={ BuySaleStocks } />
       </Switch>
     </div>);
 }

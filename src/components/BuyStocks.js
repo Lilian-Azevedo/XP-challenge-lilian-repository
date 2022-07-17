@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
-// import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import usePath from '../hooks/usePath';
 
 const listHead = ['Ação', 'Quantidade', 'Valor'];
-const arrayTest = [{ name: 'Azul4', qtd: 100, value: 350 }]
+const arrayTest = [{ name: 'Azul4', qtd: 100, value: 350, unitValue: 3.5 }]
 
 const BuyStocks = () => {
   const { sellStocks, titleAction } = usePath();
-  const [inputQuantity, setInputQuantity] = useState('');
+  const history = useHistory();
   const [labelBuyOrSell, setLabelBuyOrSell] = useState('');
+  const [inputQuantity, setInputQuantity] = useState('');
+  const [totalValue, setTotalValue] = useState('');
 
   useEffect(() => {
     if (sellStocks) {
@@ -19,7 +21,11 @@ const BuyStocks = () => {
   
 
   const handleInput = ({ target: { value } }) => {
+    const unitValue = Number(arrayTest[0].unitValue);
+    const total = unitValue * Number(value);
+    const convertedVlue = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(total);
     setInputQuantity(value);
+    setTotalValue(convertedVlue);
   }
   
   const handleClick = () => {
@@ -65,18 +71,18 @@ const BuyStocks = () => {
       </section>
       <div>
         <h2>Total da { labelBuyOrSell }:</h2>
-        <span>{}</span>
+        <span>{totalValue}</span>
       </div>
       <div>
         <button
             type="button"
-            // onClick={  }
+            onClick={() => history.push('/wallet')}
         >
             Voltar
         </button>
         <button
             type="button"
-            // onClick={ }
+            onClick={ handleClick }
         >
             { titleAction }
         </button>

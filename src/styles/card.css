@@ -4,7 +4,16 @@
     --header-height: 3rem;
 
     --color-define: 35;
-
+    
+    --first-color: hsl(var(--color-define), 100%, 57%);
+    --first-color-alt: hsl(var(--color-define), 57%, 53%);
+    --first-color-second: hsl(var(--color-define), 30%, 8%);
+    --title-color: hsl(var(--color-define), 8%, 95%);
+    --text-color: hsl(var(--color-define), 8%, 75%);
+    --body-color: hsl(var(--color-define), 28%, 12%);
+    --container-color: hsl(var(--color-define), 29%, 16%);
+    --svg-filter: invert(48%) sepia(9%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(1%);
+/* 
     --first-color: hsl(var(--color-define), 100%, 57%);
     --first-color-second: hsl(var(--color-define), 69%, 61%);
     --first-color-alt: hsl(var(--color-define), 87%, 10%);
@@ -16,7 +25,7 @@
     --body-color: hsl(var(--color-define), 60%, 99%);
     --container-color: #fff;
     --scroll-bar-color: hsl(var(--color-define), 12%, 90%);
-    --scroll-thumb-color: hsl(var(--color-define), 12%, 80%);
+    --scroll-thumb-color: hsl(var(--color-define), 12%, 80%); */
 
     --body-font: 'Poppins', sans-serif;
 
@@ -51,6 +60,20 @@
         --small-font-size: .875rem;
         --smaller-font-size: .813rem;
     }
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    margin: 0 0 var(--header-height) 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+    color: var(--text-color);
 }
 
 .button {

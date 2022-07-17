@@ -1,6 +1,6 @@
-/* .swiper {
-    padding: 32px;
-} */
+.swiper {
+    padding: 30px;
+}
 
 .swiper-slide {
     display: flex;

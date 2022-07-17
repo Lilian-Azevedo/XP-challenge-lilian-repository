@@ -36,7 +36,7 @@ const Login = () => {
     const { inputEmail } = userData;
     dispatch(saveUser(inputEmail));
     addAcessUserToLocal({ user: inputEmail, acessed: new Date()});
-    history.push('/carteira');
+    history.push('/wallet');
   }
 
   const handleEnterClick = (event) => {

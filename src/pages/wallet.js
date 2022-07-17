@@ -1,13 +1,13 @@
 import React from 'react';
-import availableStocks from '../components/availableStocks';
-import userStocks from '../components/userStocks';
+import AvailableStocks from '../components/AvailableStocks';
+import UserStocks from '../components/UserStocks';
 // import '../styles/details.css';
 // import Ingredients from '../components/tryComponentization';
 
 const WalletStocks = () => (
   <div className="details-page">
-    <userStocks />
-    <availableStocks />
+    <UserStocks />
+    <AvailableStocks />
   </div>
 );
 

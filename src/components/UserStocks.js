@@ -15,20 +15,22 @@ const UserStocks = () => {
             <h3>Valor</h3>
           </div>
         </div>
-        <div>
+        <section>
           <div>
-          {/* Fazer um map aqui dentro */}
-            <p>Aqui fica os cards</p>
+            <div>
+            {/* Fazer um map aqui dentro */}
+              <p>Aqui fica os cards</p>
+            </div>
           </div>
-        </div>
-        <div class="swiper-button-next">
-            <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
-        </div>
-        <div class="swiper-button-prev">
-          <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
-        </div>
+          <div class="swiper-button-next">
+              <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
+          </div>
+          <div class="swiper-button-prev">
+            <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
+          </div>
 
-        <div class="swiper-pagination" />
+          <div class="swiper-pagination" />
+        </section>
       </section>
     </div>
   )

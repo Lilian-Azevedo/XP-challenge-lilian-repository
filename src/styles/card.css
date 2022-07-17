@@ -1,0 +1,23 @@
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    content: '';
+}
+
+.swiper-portfolio-icon {
+    font-size: 3rem;
+    color: var(--first-color);
+}
+
+.swiper-pagination-bullets {
+    margin-bottom: -2.5rem;
+}
+
+.swiper-pagination-bullet-active {
+    background-color:var(--first-color);
+}
+
+.swiper-button-prev,
+.swiper-button-next,
+.swiper-pagination-bullet {
+    outline: none;
+}

@@ -3,7 +3,7 @@ import { getUsersFromLocal } from '../services/localStorage';
 
 const LoginLastAcess = () => {
 
-  const [ lastAcess ] = getUsersFromLocal();
+  const lastAcess = getUsersFromLocal();
 
   return (
     <div>

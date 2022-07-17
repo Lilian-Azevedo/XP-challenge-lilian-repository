@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { func, string } from 'prop-types';
 import { saveUser } from '../redux/actions/index';
 import verifyValidation from '../validations/validateEmail';
 import { useHistory } from 'react-router-dom';
@@ -93,10 +92,5 @@ const Login = () => {
     </div>
     </div>);
 }
-
-Login.propTypes = {
-  history: string.isRequired,
-  login: func.isRequired,
-};
 
 export default Login;

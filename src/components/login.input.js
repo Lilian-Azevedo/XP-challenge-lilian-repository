@@ -18,7 +18,8 @@ const InputLogin = () => {
       dispatch(disabledButton(false));
       return;
     }
-    dispatch(disabledButton(true))
+    dispatch(saveUser(userData.inputEmail));
+    dispatch(disabledButton(true));
   }, [userData]);
   
   const handleInput = ({ target: { name, value } }) => {

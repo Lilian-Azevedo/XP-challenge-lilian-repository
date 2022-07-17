@@ -9,7 +9,7 @@ export const addAcessUserToLocal = (user) => {
       .stringify([]));
   }
   if (user) {
-    const userStored = getUserFromLocal();
+    const userStored = getUsersFromLocal();
     setUserToLocal([user, ...userStored]);
   }
 };

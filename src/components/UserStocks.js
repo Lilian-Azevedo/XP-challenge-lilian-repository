@@ -12,7 +12,7 @@ const UserStocks = () => {
   return (
     <div>
       <div>
-        <h1>Minhas Ações</h1>
+        <h2>Minhas Ações</h2>
       </div>
       <section className='container-stocks-user'>
         <div>

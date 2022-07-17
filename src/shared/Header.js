@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-// import profilePicture from '../images/profileIcon.svg';
+import profilePicture from '../images/profileIcon.svg';
 
 const Header = () => {
   const history = useHistory();

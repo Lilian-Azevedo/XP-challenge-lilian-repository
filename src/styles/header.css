@@ -1,0 +1,15 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-bottom: 2rem;
+    padding: 10px;
+}
+
+.header span {
+    margin-right: 10px;
+}
+
+.filter-svg {
+    filter: var(--svg-filter);
+}

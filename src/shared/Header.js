@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import profilePicture from '../images/profileIcon.svg';
+import '../styles/header.css';
 
 const Header = () => {
   const history = useHistory();
@@ -11,8 +12,9 @@ const Header = () => {
 
   return (
     <div className="header">
-      <span>Usuário: Lilian</span>
+      <span>Lilian</span>
       <input
+      className='filter-svg'
         name="profile-btn"
         type="image"
         onClick={ handleClick }

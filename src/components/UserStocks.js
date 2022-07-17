@@ -5,7 +5,6 @@ import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
 import '../styles/slides.css';
 import Card from './Card';
-// import Card from './Card';
 
 const arrayTest = [{ name: 'Azul4', qtd: 100, value: 350 }, { name: 'Petr4', qtd: 150, value: 350 }, { name: 'Vale4',  qtd: 100, value: 350 }, { name: 'Petr4',  qtd: 100, value: 350 }]
 
@@ -23,8 +22,8 @@ const UserStocks = () => {
         </div>
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
-          spaceBetween={50}
-          slidesPerView={2}
+          spaceBetween={30}
+          slidesPerView={3}
           navigation
           pagination={{ clickable: true }}
           loop={ true }>

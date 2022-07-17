@@ -57,9 +57,7 @@
     display: inline-block;
     background-color: gray;
     color: #fff;
-    padding: 1rem;
     border-radius: .5rem;
-    /* font-weight: 500; */
 }
 
 .button:hover {

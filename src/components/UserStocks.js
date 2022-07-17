@@ -19,6 +19,7 @@ const UserStocks = () => {
           <h4>Ação</h4>
           <h4>Quantidade</h4>
           <h4>Valor</h4>
+          <h4>Negociar</h4>
         </div>
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}

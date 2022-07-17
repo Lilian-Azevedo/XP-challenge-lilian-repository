@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import BuySaleStocks from './pages/BuySaleStocks';
 // import mainPage from './pages/mainPage';
 // import createUser from './pages/createUser';
 import Login from './pages/Login';
@@ -13,7 +14,7 @@ function App() {
         {/* <Route path="/create" component={ createUser } /> */}
         <Route exact path="/" component={ Login } />
         <Route path="/wallet" component={ WalletStocks } />
-        
+        <Route path="/buy" component={ BuySaleStocks } />
       </Switch>
     </div>);
 }

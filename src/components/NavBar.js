@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as Unicons from '@iconscout/react-unicons';
-import '../styles';
+import '../styles/navBar.css';
 
 const NavBar = () => {
     const [showed, setShowed] = useState(false);
@@ -12,34 +12,34 @@ const NavBar = () => {
           <ul class="nav_list grid">
 
             <li class="nav_item">
-              <a href="#about" class="nav_link">
+              <a href="#about">
                 <Unicons.UilUser size="30" color="#E4B600"/>
               </a>
               Usuário
             </li>
 
             <li class="nav_item">
-              <a href="#skills" class="nav_link">
+              <a href="#skills">
                 <Unicons.UilMoneyWithdraw size="30" color="#E4B600"/>
               </a>
               Retirada
             </li>
 
             <li class="nav_item">
-              <a href="#contact" class="nav_link">
+              <a href="#contact">
                 <Unicons.UilMoneyInsert size="30" color="#E4B600"/>
               </a>
               Depósito
             </li>
 
             <li class="nav_item">
-              <a href="#home" class="nav_link">
+              <a href="#home">
                 <Unicons.UilSignOutAlt size="30" color="#E4B600" />
               </a>
               Sair
             </li>
           </ul>
-          <div onClick={() => setShowed(false)}>
+          <div onClick={() => setShowed(false)} className='nav_close'>
             <Unicons.UilMultiply  size="30" color="#E4B600" />
           </div>
         </div>)

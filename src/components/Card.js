@@ -13,11 +13,11 @@ const Card = (infoStock) => {
         <p class="card_description">{ value }</p>
         <div>
           <button class="button button--flex" onClick={() => history.push('/buy')}>
-            C
+            +
           </button>
 
           <button class="button button--flex" onClick={() => history.push('/sell')}>
-            V
+            -
           </button>
         </div>
     </div>

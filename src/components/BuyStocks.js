@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import usePath from '../hooks/usePath';
+import AccountBalance from './AccountBalance';
 
 const listHead = ['Ação', 'Quantidade', 'Valor'];
-const arrayTest = [{ name: 'Azul4', qtd: 100, value: 350, unitValue: 3.5 }]
+const arrayTest = [{ name: 'Azul4', qtd: 100, value: 350, unitValue: 3.5 }];
+let testData = { id: 1, name: 'Lilian', email: '', lastAcess: '', stocks: [{}, {}], records: [{}, {}], accountBalance: 958 };
 
 const BuyStocks = () => {
-  const { sellStocks, titleAction } = usePath();
+  const { sellStocks, titleAction, pathname } = usePath();
   const history = useHistory();
   const [labelBuyOrSell, setLabelBuyOrSell] = useState('');
   const [inputQuantity, setInputQuantity] = useState('');
@@ -23,12 +25,16 @@ const BuyStocks = () => {
   const handleInput = ({ target: { value } }) => {
     const unitValue = Number(arrayTest[0].unitValue);
     const total = unitValue * Number(value);
-    const convertedVlue = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(total);
+    const convertedValue = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(total);
     setInputQuantity(value);
-    setTotalValue(convertedVlue);
+    setTotalValue(convertedValue);
   }
   
   const handleClick = () => {
+    if (sellStocks) {
+      // reduz
+      
+    }
     history.push('/wallet');
   }
 
@@ -39,6 +45,7 @@ const BuyStocks = () => {
   return (
     <div>
       <h1>{ titleAction } Ação</h1>
+      {/* ARÉA DE INFORMAÇÕES DA AÇÃO*/}
       <section>
         <table>
           <thead>
@@ -58,6 +65,7 @@ const BuyStocks = () => {
           </tbody>
         </table>
       </section>
+      {/* ARÉA DE INPUT DA QUANTIDADE DE AÇÕES*/}
       <section>
         <span>Quantidade</span>
         <input
@@ -69,14 +77,16 @@ const BuyStocks = () => {
           placeholder="Informe quantas ações"
         />
       </section>
+      {/* ARÉA DO VALOR TOTAL DA COMPRA/VENDA */}
       <div>
         <h2>Total da { labelBuyOrSell }:</h2>
         <span>{totalValue}</span>
       </div>
+      {/* BOTÕES DE VOLTAR E COMPRAR/VENDER */}
       <div>
         <button
             type="button"
-            onClick={() => history.push('/wallet')}
+            onClick={() => history.push(pathname)}
         >
             Voltar
         </button>
@@ -87,6 +97,11 @@ const BuyStocks = () => {
             { titleAction }
         </button>
       </div>
+      {/* ARÉA DO SALDO DISPONÍVEL */}
+      <div>
+        <AccountBalance />
+      </div>
+
     </div>
   );
 };

@@ -8,7 +8,7 @@ const usePath = () => {
     sellStocks = true;
     titleAction = 'Vender';
   }
-  return { sellStocks, titleAction };
+  return { sellStocks, titleAction, pathname };
 };
 
 export default usePath;

@@ -13,3 +13,22 @@ export const addAcessUserToLocal = (user) => {
     setUserToLocal([user, ...userStored]);
   }
 };
+
+export const getAccountInfoFromLocal = () => JSON
+  .parse(localStorage.getItem('usersAccountInfo'));
+export const setAccountInfoToLocal = (financialTransaction) => localStorage
+  .setItem('usersAccountInfo', JSON.stringify(financialTransaction));
+
+export const addAccountInfoToLocal = (type, usersAccountInfo) => {
+  if (!JSON.parse(localStorage.getItem('usersAccountInfo'))) {
+    localStorage.setItem('usersAccountInfo', JSON
+      .stringify({ }));
+  }
+  if (usersAccountInfo) {
+    const { id, ingredients } = usersAccountInfo;
+    const AccountInfoStored = getAccountInfoFromLocal();
+    const keyDataStored = AccountInfoStored[key];
+    const newObjectKey = { ...keyDataStored, [id]: ingredients };
+    setAccountInfoToLocal({ ...AccountInfoStored, [key]: newObjectKey });
+  }
+};

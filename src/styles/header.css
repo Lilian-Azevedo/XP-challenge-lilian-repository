@@ -4,6 +4,9 @@
     justify-content: flex-end;
     margin-bottom: 2rem;
     padding: 10px;
+    /* position: fixed; */
+    /* top: 0; */
+    /* right: 0; */
 }
 
 .header span {

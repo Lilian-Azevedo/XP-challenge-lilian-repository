@@ -61,6 +61,7 @@
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--first-color);
+    transition: .5s;
 }
 
 .nav_close:hover {

@@ -12,7 +12,7 @@ const NavBar = () => {
           <ul class="nav_list grid">
 
             <li class="nav_item">
-              <a href="#about">
+              <a href="/user">
                 <Unicons.UilUser size="30" color="#E4B600"/>
               </a>
               Usuário

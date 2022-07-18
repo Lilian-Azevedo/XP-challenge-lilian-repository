@@ -19,21 +19,21 @@ const NavBar = () => {
             </li>
 
             <li class="nav_item">
-              <a href="#skills">
+              <a href="/acount">
                 <Unicons.UilMoneyWithdraw size="30" color="#E4B600"/>
               </a>
               Retirada
             </li>
 
             <li class="nav_item">
-              <a href="#contact">
+              <a href="/acount">
                 <Unicons.UilMoneyInsert size="30" color="#E4B600"/>
               </a>
               Depósito
             </li>
 
             <li class="nav_item">
-              <a href="#home">
+              <a href="/">
                 <Unicons.UilSignOutAlt size="30" color="#E4B600" />
               </a>
               Sair

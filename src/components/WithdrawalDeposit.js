@@ -5,22 +5,27 @@ let testData = { id: 1, name: 'Lilian', email: '', lastAcess: '', stocks: [{}, {
 
 const WithdrawalDeposit = () => {
   const history = useHistory();
-  const [inputQuantity, setInputQuantity] = useState('');
-  const [testNumber, setTestNumber] = useState(0);
-  const [totalValue, setTotalValue] = useState({ total: '', convertedValue: '' });
-  
+  const [inputValue, setInputValue] = useState('');  
 
   const handleInput = ({ target: { value } }) => {
-    const unitValue = Number(arrayTest[0].unitValue);
-    const total = unitValue * Number(value);
-    const convertedValue = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(total);
-    setInputQuantity(value);
-    setTotalValue({ total, convertedValue });
+    setInputValue(value);
   }
   
-  const handleClick = () => {
-    setTestNumber(totalValue.total);
-    // history.push('/wallet');
+  const handleOperation = ({ target: { name } }) => {
+    let newAccountBalance = Number(testData.accountBalance);
+    const { accountBalance, ...testReload } = testData; 
+    if (name === 'deposit') {
+      newAccountBalance = newAccountBalance + Number(inputValue);
+// LocalStorage
+      testData = {...testReload, accountBalance: newAccountBalance };
+      return;
+    }
+    newAccountBalance = newAccountBalance - Number(inputValue);
+    testData = {...testReload, accountBalance: newAccountBalance };
+  }
+  
+  const handleClick = (event) => {
+    console.log('sai da pagina');
   }
 
   const handleEnterClick = (event) => {
@@ -28,7 +33,23 @@ const WithdrawalDeposit = () => {
   }
 
   return (
-    <div>    
+    <div>
+      <div>
+        <button
+            type="button"
+            onClick={ handleOperation }
+            name="deposit"
+        >
+            Depósito
+        </button>
+        <button
+            type="button"
+            onClick={ handleOperation }
+            name="withdrawal"
+        >
+            Retirada
+        </button>
+      </div>   
       {/* ARÉA DE INPUT DA QUANTIDADE DE AÇÕES*/}
       <section>
         <span>Digite o valor</span>
@@ -36,8 +57,8 @@ const WithdrawalDeposit = () => {
           type="text"
           onChange={ handleInput }
           onKeyDown={ handleEnterClick }
-          value={ inputQuantity }
-          name="inputQuantity"
+          value={ inputValue }
+          name="inputValue"
           placeholder="Informe quantas ações"
         />
       </section>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import * as Unicons from '@iconscout/react-unicons';
 import '../styles/navBar.css';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     const [showed, setShowed] = useState(false);
@@ -12,30 +13,30 @@ const NavBar = () => {
           <ul class="nav_list grid">
 
             <li class="nav_item">
-              <a href="/user">
+              <Link to="/user">
                 <Unicons.UilUser size="30" color="#E4B600"/>
-              </a>
+              </Link>
               Usuário
             </li>
 
             <li class="nav_item">
-              <a href="/acount">
+              <Link to="/acount">
                 <Unicons.UilMoneyWithdraw size="30" color="#E4B600"/>
-              </a>
+              </Link>
               Retirada
             </li>
 
             <li class="nav_item">
-              <a href="/acount">
+              <Link to="/acount">
                 <Unicons.UilMoneyInsert size="30" color="#E4B600"/>
-              </a>
+              </Link>
               Depósito
             </li>
 
             <li class="nav_item">
-              <a href="/">
+              <Link to="/">
                 <Unicons.UilSignOutAlt size="30" color="#E4B600" />
-              </a>
+              </Link>
               Sair
             </li>
           </ul>

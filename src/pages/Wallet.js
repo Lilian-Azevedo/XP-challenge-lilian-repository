@@ -1,6 +1,6 @@
 import React from 'react';
 import AvailableStocks from '../components/AvailableStocks';
-import NavBar from '../components/NavBar';
+import NavBar from '../shared/NavBar';
 import UserStocks from '../components/UserStocks';
 import Header from '../shared/Header';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import BuyStocks from '../components/BuyStocks';
-import NavBar from '../components/NavBar';
+import NavBar from '../shared/NavBar';
 import Header from '../shared/Header';
 
 const BuySaleStocks = () => (

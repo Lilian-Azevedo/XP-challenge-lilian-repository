@@ -9,9 +9,7 @@ const WalletStocks = () => (
     <Header />
     <UserStocks />
     <AvailableStocks />
-    <footer>
-      <NavBar />
-    </footer>
+    <NavBar />
   </div>
 );
 

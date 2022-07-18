@@ -9,10 +9,12 @@ let testData = { id: 1, name: 'Lilian', email: '', lastAcess: '', stocks: [{}, {
 
 const BuyStocks = () => {
   const { sellStocks, titleAction, pathname } = usePath();
+  console.log(pathname);
   const history = useHistory();
   const [labelBuyOrSell, setLabelBuyOrSell] = useState('');
   const [inputQuantity, setInputQuantity] = useState('');
-  const [totalValue, setTotalValue] = useState('');
+  const [testNumber, setTestNumber] = useState(0);
+  const [totalValue, setTotalValue] = useState({ total: '', convertedValue: '' });
 
   useEffect(() => {
     if (sellStocks) {
@@ -27,15 +29,19 @@ const BuyStocks = () => {
     const total = unitValue * Number(value);
     const convertedValue = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(total);
     setInputQuantity(value);
-    setTotalValue(convertedValue);
+    setTotalValue({ total, convertedValue });
   }
   
   const handleClick = () => {
     if (sellStocks) {
       // reduz
-      
+      const reduceAcoount = totalValue.total*(-1);
+      setTestNumber(reduceAcoount);
+    //   history.push('/wallet');
+      return;
     }
-    history.push('/wallet');
+    setTestNumber(totalValue.total);
+    // history.push('/wallet');
   }
 
   const handleEnterClick = (event) => {
@@ -80,13 +86,13 @@ const BuyStocks = () => {
       {/* ARÉA DO VALOR TOTAL DA COMPRA/VENDA */}
       <div>
         <h2>Total da { labelBuyOrSell }:</h2>
-        <span>{totalValue}</span>
+        <span>{totalValue.convertedValue }</span>
       </div>
       {/* BOTÕES DE VOLTAR E COMPRAR/VENDER */}
       <div>
         <button
             type="button"
-            onClick={() => history.push(pathname)}
+            onClick={() => history.push('/wallet')}
         >
             Voltar
         </button>
@@ -98,9 +104,9 @@ const BuyStocks = () => {
         </button>
       </div>
       {/* ARÉA DO SALDO DISPONÍVEL */}
-      <div>
-        <AccountBalance />
-      </div>
+      {!sellStocks && (<div>
+        <AccountBalance testNumber={ testNumber }/>
+      </div>)}
 
     </div>
   );

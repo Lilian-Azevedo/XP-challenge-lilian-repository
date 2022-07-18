@@ -27,8 +27,8 @@ export const addAccountInfoToLocal = (type, usersAccountInfo) => {
   if (usersAccountInfo) {
     const { id, ingredients } = usersAccountInfo;
     const AccountInfoStored = getAccountInfoFromLocal();
-    const keyDataStored = AccountInfoStored[key];
-    const newObjectKey = { ...keyDataStored, [id]: ingredients };
-    setAccountInfoToLocal({ ...AccountInfoStored, [key]: newObjectKey });
+    const keyDataStored = AccountInfoStored[type];
+    const newObjecttype = { ...keyDataStored, [id]: ingredients };
+    setAccountInfoToLocal({ ...AccountInfoStored, [type]: newObjecttype });
   }
 };

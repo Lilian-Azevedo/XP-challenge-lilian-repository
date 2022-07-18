@@ -11,8 +11,8 @@ body {
 .button {
     display: inline-block;
     background-color: gray;
-    color: #fff;
-    border-radius: .5rem;
+    color: var(--body-color);
+    padding: 5px;
 }
 
 .button:hover {

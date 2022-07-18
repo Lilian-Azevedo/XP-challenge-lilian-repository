@@ -5,6 +5,7 @@ import BuySaleStocks from './pages/BuySaleStocks';
 // import createUser from './pages/createUser';
 import Login from './pages/Login';
 import WalletStocks from './pages/Wallet';
+import WithdrawDeposit from './pages/WithdrawDeposit';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/wallet" component={ WalletStocks } />
         <Route path="/buy" component={ BuySaleStocks } />
         <Route path="/sell" component={ BuySaleStocks } />
+        <Route path="/acount" component={ WithdrawDeposit } />
       </Switch>
     </div>);
 }

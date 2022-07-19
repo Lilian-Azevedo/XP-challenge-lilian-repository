@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { addNewUserToLocal } from '../services/localStorage';
 import verifyValidation from '../validations/validateEmail';
@@ -45,7 +45,7 @@ const SignIn = () => {
     if (event.key === 'Enter') return handleClick();
   }
 
-  const { inputName, inputEmail, inputPassword } = userData;
+  const { inputName, inputEmail, inputPassword, inputValueInitial } = userData;
 
   return (
     <div className="details-page">

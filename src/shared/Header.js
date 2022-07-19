@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <div className="header">
-      <span>Lilian</span>
+      <span>{ }</span>
       <input
       className='filter-svg'
         name="profile-btn"

@@ -4,6 +4,7 @@ import { saveUser } from '../redux/actions/index';
 import verifyValidation from '../validations/validateEmail';
 import { useHistory } from 'react-router-dom';
 import { addAcessUserToLocal } from '../services/localStorage';
+import { verifyExistence } from '../services/verifyExistenceUser';
 
 const INITIAL_STATE = {
   inputEmail: '',
@@ -31,8 +32,12 @@ const Login = () => {
   const handleClick = () => {
     const { inputEmail } = userData;
     dispatch(saveUser(inputEmail));
-    addAcessUserToLocal({ user: inputEmail, acessed: new Date()});
-    history.push('/wallet');
+    const findUser = verifyExistence(inputEmail);
+    if (findUser) {
+      addAcessUserToLocal({ ...findUser, lastAcess: new Date()});
+      return history.push('/wallet');
+    }
+    history.push('/not-found');
   }
 
   const handleEnterClick = (event) => {

@@ -5,7 +5,7 @@ import AccountBalance from './AccountBalance';
 
 const listHead = ['Ação', 'Quantidade', 'Valor'];
 const arrayTest = [{ name: 'Azul4', qtd: 100, value: 350, unitValue: 3.5 }];
-let testData = { id: 1, name: 'Lilian', email: '', lastAcess: '', stocks: [{}, {}], records: [{}, {}], accountBalance: 958 };
+// let testData = { id: 1, name: 'Lilian', email: '', lastAcess: '', stocks: [{}, {}], records: [{}, {}], accountBalance: 958 };
 
 const BuyStocks = () => {
   const { sellStocks, titleAction, pathname } = usePath();

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { addNewUserToLocal } from '../services/localStorage';
+import verifyValidation from '../validations/validateEmail';
 
 const INITIAL_STATE = {
   inputName: '',
@@ -13,6 +14,15 @@ const SignIn = () => {
   const [userData, setUserData] = useState(INITIAL_STATE);
   const [disableInput, setDisableInput] = useState(true);
   const history = useHistory();
+  const [disableButton, setDisableButton] = useState(true);
+
+  useEffect(() => {
+    if(verifyValidation(userData)) {
+      setDisableButton(false);
+      return;
+    }
+    setDisableButton(true);
+  }, [userData]);
 
   const handleInput = ({ target: { name, value } }) => {
     setUserData(prev => ({...prev, [name]: value }));

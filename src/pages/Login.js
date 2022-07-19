@@ -28,10 +28,6 @@ const Login = () => {
     setUserData(prev => ({...prev, [name]: value }));
   }
 
-  const handleClickBack = () => {
-    history.push('/');
-  }
-
   const handleClick = () => {
     const { inputEmail } = userData;
     dispatch(saveUser(inputEmail));
@@ -76,7 +72,7 @@ const Login = () => {
       <div>
         <button
             type="button"
-            onClick={ handleClickBack }
+            onClick={ () => history.push('/') }
         >
         Voltar
         </button>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import usePath from '../hooks/usePath';
+import mockListStocks from '../mocks/mockListStocks';
 import AccountBalance from './AccountBalance';
 
 const listHead = ['Ação', 'Quantidade', 'Valor'];
@@ -8,10 +9,10 @@ const arrayTest = [{ name: 'Azul4', qtd: 100, value: 350, unitValue: 3.5 }];
 // let testData = { id: 1, name: 'Lilian', email: '', lastAcess: '', stocks: [{}, {}], records: [{}, {}], accountBalance: 958 };
 
 const BuyStocks = () => {
-  const { sellStocks, titleAction, pathname } = usePath();
-  console.log(pathname);
+  const { sellStocks, titleAction, id: idPath } = usePath();
   const history = useHistory();
   const [labelBuyOrSell, setLabelBuyOrSell] = useState('');
+  const [data, setData] = useState([]);
   const [inputQuantity, setInputQuantity] = useState('');
   const [testNumber, setTestNumber] = useState(0);
   const [totalValue, setTotalValue] = useState({ total: '', convertedValue: '' });
@@ -21,6 +22,13 @@ const BuyStocks = () => {
       return setLabelBuyOrSell('venda');
     }
     setLabelBuyOrSell('compra');
+    const getDataAPI = async () => {
+      // const response = await fetch(endpoint);
+      // const results = await response.json();
+      const results = mockListStocks.find(({ id }) => id === idPath); // use mock
+      setData(results);
+    };
+    getDataAPI();
   }, [])
   
 

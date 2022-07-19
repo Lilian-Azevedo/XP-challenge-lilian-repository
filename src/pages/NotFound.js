@@ -7,7 +7,7 @@ const NotFound = () => {
       <div>
         <h1>404</h1>
         <h2>Parece que a página que está procurando não existe!</h2>
-        <h3>Se você faz parte do XP Actioners, crie uma conta!</h3>
+        <h3>Se você não faz parte do XP Actioners, crie uma conta!</h3>
       </div>
 
       <div>

@@ -16,8 +16,10 @@ function App() {
         <Route path="/create" component={ SignIn } />
         <Route path="/login" component={ Login } />
         <Route path="/wallet" component={ WalletStocks } />
-        <Route path="/buy" component={ BuySaleStocks } />
-        <Route path="/sell" component={ BuySaleStocks } />
+        <Route path="/buy/:id"
+          render={ (props) => (<BuySaleStocks { ...props } />) }/>
+        <Route path="/sell/:id"
+          render={ (props) => (<BuySaleStocks { ...props } />) }/>
         <Route path="/acount" component={ WithdrawDeposit } />
         <Route path="*" component={ NotFound } />
       </Switch>

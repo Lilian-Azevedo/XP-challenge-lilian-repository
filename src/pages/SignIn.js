@@ -34,10 +34,8 @@ const SignIn = () => {
   }
 
   const handleClick = () => {
-    const { inputEmail, inputValueInitial, inputName } = userData;
     const generateId = Math.floor(Date.now() * Math.random());
-    addNewUserToLocal({ id: generateId, name: inputName,
-      email: inputEmail, createdAt: new Date(), accountBalance: inputValueInitial});
+    addNewUserToLocal({ id: generateId, ...userData});
     history.push('/wallet');
   }
 

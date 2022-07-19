@@ -1,13 +1,17 @@
 import React from 'react';
+import { getLastUserAcessFromLocal } from '../services/localStorage';
 
-const testData = { name: 'Lilian', email: '', lastAcess: '', stocks: [{}, {}], records: [{}, {}], accountBalance: 958 };
+const AccountBalance = () => {
 
-const AccountBalance = ({ testNumber }) => {
-  const convertedValue = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(testData.accountBalance + Number(testNumber));
+  const convertedValue = () => {
+    const account = getLastUserAcessFromLocal() ? getLastUserAcessFromLocal().accountBalance : 0;
+    return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(Number(account));
+  }
+
   return (
     <div>
       <h3>Saldo Disponível:</h3>
-      <p>{ convertedValue }</p>
+      <p>{ convertedValue() }</p>
     </div>
   )
 }

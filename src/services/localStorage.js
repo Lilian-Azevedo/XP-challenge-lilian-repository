@@ -1,4 +1,4 @@
-export const getUsersAcessFromLocal = () => JSON
+export const getLastUserAcessFromLocal = () => JSON
   .parse(localStorage.getItem('userAcesses'));
 export const setUserAcessToLocal = (newUser) => localStorage
   .setItem('userAcesses', JSON.stringify(newUser));
@@ -6,11 +6,10 @@ export const setUserAcessToLocal = (newUser) => localStorage
 export const addAcessUserToLocal = (user) => {
   if (!JSON.parse(localStorage.getItem('userAcesses'))) {
     localStorage.setItem('userAcesses', JSON
-      .stringify([]));
+      .stringify({ name: ''}));
   }
   if (user) {
-    const userStored = getUsersAcessFromLocal();
-    setUserAcessToLocal([user, ...userStored]);
+    setUserAcessToLocal(user);
   }
 };
 
@@ -45,6 +44,14 @@ export const addNewUserToLocal = (newUser) => {
   }
   if (newUser) {
     const usersStored = getUsersFromLocal();
-    setNewUserToLocal([...usersStored, newUser]);
+    const initializeInfos = { 
+      id: newUser.id,
+      name: newUser.inputName,
+      email: newUser.inputEmail,
+      createdAt: new Date(),
+      accountBalance: newUser.inputValueInitial,
+      recordsStocks:[], financialTransactions: [] };
+    setNewUserToLocal([...usersStored, initializeInfos]);
+    addAcessUserToLocal(initializeInfos);
   }
 };

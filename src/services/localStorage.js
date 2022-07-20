@@ -63,9 +63,23 @@ export const updateDataUserLocalSt = (type, newUpdate, user) => {
   if (newUpdate) {
     const usersStored= getUsersFromLocal();
     const userFind = usersStored.find(({ id }) => id === Number(user.id));
-    // const results = mockListStocks.find(({ id }) => id === Number(idPath)); 
+    console.log(user, type);
     const prevListStored = userFind[type];
     const userUpdated = { ...userFind, [type]: [...prevListStored, newUpdate] };
+    const removeUser = usersStored.filter(userStore => userStore.id !== Number(user.id));
+    setUserToLocal([...removeUser, userUpdated ]);
+    addAcessUserToLocal(userUpdated);
+  }
+};
+
+export const updateAccountLocalSt = (type, value, user) => {
+  if (value) {
+    const usersStored = getUsersFromLocal();
+    const userFind = usersStored.find(({ id }) => id === Number(user.id));
+    const userUpdatedBalance = (type === 'compra'
+      ? (Number(userFind.accountBalance) - Number(value))
+      : (Number(userFind.accountBalance) - Number(value)));
+    const userUpdated = { ...userFind, accountBalance: userUpdatedBalance };
     const removeUser = usersStored.filter(userStore => userStore.id !== Number(user.id));
     setUserToLocal([...removeUser, userUpdated ]);
     addAcessUserToLocal(userUpdated);

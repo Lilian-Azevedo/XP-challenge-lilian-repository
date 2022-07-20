@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { getLastUserAcessFromLocal } from '../services/localStorage';
 
-const AccountBalance = () => {
+const convertedValue = (value) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(Number(value));
 
-  const convertedValue = () => {
+const AccountBalance = () => {
+  const [data, setData] = useState(convertedValue(0));
+  // 
+  useEffect(() => {
     const account = getLastUserAcessFromLocal() ? getLastUserAcessFromLocal().accountBalance : 0;
-    return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(Number(account));
-  }
+    setData(convertedValue(account));
+  }, [])
+  
 
   return (
     <div>
       <h3>Saldo Disponível:</h3>
-      <p>{ convertedValue() }</p>
+      <p>{ data }</p>
     </div>
   )
 }

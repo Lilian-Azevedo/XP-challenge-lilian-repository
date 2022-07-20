@@ -36,7 +36,7 @@ const AvailableStocks = () => {
         <table>
           <thead>
           <tr>
-              {listHead.map(item => (<th>{ item }</th>))}
+            {listHead.map(item => (<th key={ item }>{ item }</th>))}
           </tr>
           </thead>
           <tbody>

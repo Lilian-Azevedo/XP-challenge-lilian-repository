@@ -21,7 +21,7 @@ const UserStocks = () => {
         <h2>Minhas Ações</h2>
       </div>
 
-      { recordsUser
+      { !recordsUser
       ? <h3>Parece que sua carteira de ações está vazia</h3>
       :(<section className='container-stocks-user'>
         <div>
@@ -33,7 +33,7 @@ const UserStocks = () => {
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={30}
-          slidesPerView={3}
+          slidesPerView={2}
           navigation
           pagination={{ clickable: true }}
           loop={ true }>

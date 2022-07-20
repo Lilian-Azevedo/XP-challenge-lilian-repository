@@ -12,8 +12,9 @@ const BodyInfoStock = () => {
   const { recordStock } = useSelector(state => state.walletReducer);
 
   useEffect(() => {
-    setData(recordStock);
-  }, [recordStock])
+    setData([...recordStock]);
+    console.log(recordStock);
+  }, [])
   
 
   return (
@@ -24,7 +25,7 @@ const BodyInfoStock = () => {
           <tr key={ id }>
               <td>{ cd_acao }</td>
               <td>{ qtdPurchased }</td>
-              <td>{ convertValue(vl_fechamento * qtdPurchased) }</td>
+              <td>{ convertValue(Number(vl_fechamento) * Number(qtdPurchased)) }</td>
           </tr>
           ))
         : data

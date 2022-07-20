@@ -21,9 +21,9 @@ const Home = () => {
           alt="home Page"
         />
       </div>
-      <div>
-        <button className='button-general' onClick={ () => history.push('/login') }>Faça Login</button>
-        <button className='button-general' onClick={ () => history.push('/create') }>Crie uma conta</button>
+      <div className='section-btns'>
+        <button className='button-general button--flex' onClick={ () => history.push('/login') }>Faça Login</button>
+        <button className='button-general button--flex' onClick={ () => history.push('/create') }>Crie uma conta</button>
       </div>
     </div>
   );

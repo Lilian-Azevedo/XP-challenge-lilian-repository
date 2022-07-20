@@ -10,20 +10,18 @@ import NotFound from './pages/NotFound';
 
 function App() {
   return (
-    <div>
-      <Switch>
-        <Route exact path="/" component={ Home } />
-        <Route path="/create" component={ SignIn } />
-        <Route path="/login" component={ Login } />
-        <Route path="/wallet" component={ WalletStocks } />
-        <Route path="/buy/:id"
-          render={ (props) => (<BuySaleStocks { ...props } />) }/>
-        <Route path="/sell/:id"
-          render={ (props) => (<BuySaleStocks { ...props } />) }/>
-        <Route path="/acount" component={ WithdrawDeposit } />
-        <Route path="*" component={ NotFound } />
-      </Switch>
-    </div>);
+    <Switch>
+      <Route exact path="/" component={ Home } />
+      <Route path="/create" component={ SignIn } />
+      <Route path="/login" component={ Login } />
+      <Route path="/wallet" component={ WalletStocks } />
+      <Route path="/buy/:id"
+        render={ (props) => (<BuySaleStocks { ...props } />) }/>
+      <Route path="/sell/:id"
+        render={ (props) => (<BuySaleStocks { ...props } />) }/>
+      <Route path="/acount" component={ WithdrawDeposit } />
+      <Route path="*" component={ NotFound } />
+    </Switch>);
 }
 
 export default App;

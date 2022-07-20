@@ -23,14 +23,14 @@ const NavBar = () => {
               <Link to="/acount">
                 <Unicons.UilMoneyWithdraw size="30" color="#E4B600"/>
               </Link>
-              Retirada
+              Conta
             </li>
 
             <li class="nav_item">
-              <Link to="/acount">
-                <Unicons.UilMoneyInsert size="30" color="#E4B600"/>
+              <Link to="/wallet">
+                <Unicons.UilWallet size="30" color="#E4B600"/>
               </Link>
-              Depósito
+              Carteira de ações
             </li>
 
             <li class="nav_item">

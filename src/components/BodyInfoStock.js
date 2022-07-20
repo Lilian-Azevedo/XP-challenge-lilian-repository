@@ -13,7 +13,6 @@ const BodyInfoStock = () => {
 
   useEffect(() => {
     setData([...recordStock]);
-    console.log(recordStock);
   }, [recordStock])
   
 
@@ -25,7 +24,7 @@ const BodyInfoStock = () => {
           <tr key={ id }>
               <td>{ cd_acao }</td>
               <td>{ qtdPurchased }</td>
-              <td>{ convertValue(Number(vl_fechamento) * Number(qtdPurchased)) }</td>
+              <td>{ convertValue((Number(vl_fechamento) * Number(qtdPurchased))) }</td>
           </tr>
           ))
         : data

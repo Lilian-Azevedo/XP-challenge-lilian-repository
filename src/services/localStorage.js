@@ -56,16 +56,39 @@ export const addNewUserToLocal = (newUser) => {
   }
 };
 
+const removeStockFromLocal = (stock, user) => {
+  const usersStored= getUsersFromLocal();
+  const removeUser = usersStored.filter(userStore => userStore.id !== Number(user.id));
+  const newUpdate = user.recordsStocks.filter(({ id }) => id !== Number(stock.id));
+  console.log(newUpdate);
+  const userUpdated = { ...user, recordsStocks: newUpdate };
+  setUserToLocal([...removeUser, userUpdated ]);
+  addAcessUserToLocal(userUpdated);
+  return;
+  // return { ...user, recordsStocks: newUpdate }
+};
+
+const updateStockToLocal = (stock, user) => {
+  const newUpdate = user.recordsStocks.filter(({ id }) => id !== Number(stock.id));
+  return { ...user, recordsStocks: [...newUpdate, stock] }
+};
+
 export const setAccountInfoToLocal = (financialTransaction) => localStorage
   .setItem('usersAccountInfo', JSON.stringify(financialTransaction));
 
 export const updateDataUserLocalSt = (type, newUpdate, user) => {
   if (newUpdate) {
+    if (newUpdate.qtdPurchased === 0) {
+      return removeStockFromLocal(newUpdate, user);
+    }
+    let userUpdated = {};
     const usersStored= getUsersFromLocal();
-    const userFind = usersStored.find(({ id }) => id === Number(user.id));
-    console.log(user, type);
-    const prevListStored = userFind[type];
-    const userUpdated = { ...userFind, [type]: [...prevListStored, newUpdate] };
+    const findRecord = user[type].find(({ id }) => id === Number(newUpdate.id));
+    if (findRecord) {
+      userUpdated = updateStockToLocal(newUpdate, user);
+    } else {
+      userUpdated = { ...user, [type]: [...user[type], newUpdate] };
+    }
     const removeUser = usersStored.filter(userStore => userStore.id !== Number(user.id));
     setUserToLocal([...removeUser, userUpdated ]);
     addAcessUserToLocal(userUpdated);
@@ -78,7 +101,7 @@ export const updateAccountLocalSt = (type, value, user) => {
     const userFind = usersStored.find(({ id }) => id === Number(user.id));
     const userUpdatedBalance = (type === 'compra'
       ? (Number(userFind.accountBalance) - Number(value))
-      : (Number(userFind.accountBalance) - Number(value)));
+      : (Number(userFind.accountBalance) + Number(value)));
     const userUpdated = { ...userFind, accountBalance: userUpdatedBalance };
     const removeUser = usersStored.filter(userStore => userStore.id !== Number(user.id));
     setUserToLocal([...removeUser, userUpdated ]);

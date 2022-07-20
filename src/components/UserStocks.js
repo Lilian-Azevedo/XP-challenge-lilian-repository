@@ -21,7 +21,7 @@ const UserStocks = () => {
         <h2>Minhas Ações</h2>
       </div>
 
-      { !recordsUser
+      { !recordsUser.length
       ? <h3>Parece que sua carteira de ações está vazia</h3>
       :(<section className='container-stocks-user'>
         <div>
@@ -30,7 +30,15 @@ const UserStocks = () => {
           <h4>Valor</h4>
           <h4>Negociar</h4>
         </div>
-        <Swiper
+        { recordsUser.length < 2
+        ? <div>
+          {recordsUser.map((item, index) => (
+            <div key={ index }>
+              <Card {...item}/>
+            </div>))
+          }
+        </div>
+        :(<Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={30}
           slidesPerView={2}
@@ -42,7 +50,7 @@ const UserStocks = () => {
                 <Card {...item}/>
               </SwiperSlide>
             ))}           
-        </Swiper>
+        </Swiper>)}
       </section>)}
     </div>
   )

@@ -33,7 +33,6 @@ const BuyStocks = () => {
       const results = sellStocks
         ? user.recordsStocks.find(({ id }) => id === Number(idPath)) // use records
         : mockListStocks.find(({ id }) => id === Number(idPath)); // use mock
-      console.log(results);
       setData([results]);
       dispatch(recordStock(results));
     };
@@ -45,7 +44,6 @@ const BuyStocks = () => {
   }, [])
 
   const handleInput = ({ target: { value } }) => {
-    console.log(data[0]);
     const unitValue = data[0].vl_fechamento;
     const total = unitValue * value;
     setInputQuantity(value);

@@ -4,11 +4,11 @@ import { useHistory } from 'react-router-dom';
 import usePath from '../hooks/usePath';
 import mockListStocks from '../mocks/mockListStocks';
 import { recordStock } from '../redux/actions';
+import { getLastUserAcessFromLocal } from '../services/localStorage';
 import AccountBalance from './AccountBalance';
-import BodyInfoStock from './BodyInfoStock';
+import BodyInfoStock from './BodyInfoStock';;
 
 const listHead = ['Ação', 'Quantidade', 'Valor'];
-const arrayTest = [{ name: 'Azul4', qtd: 100, value: 350, unitValue: 3.5 }];
 
 const convertValue = (total) => {
   return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(total);
@@ -20,11 +20,13 @@ const BuyStocks = () => {
   const history = useHistory();
   const [labelBuyOrSell, setLabelBuyOrSell] = useState('');
   const [data, setData] = useState([]);
+  const [userBalance, setUserBalance] = useState([]);
   const [inputQuantity, setInputQuantity] = useState('');
-  const [testNumber, setTestNumber] = useState(0);
   const [totalValue, setTotalValue] = useState({ total: '', convertedValue: convertValue(0) });
 
   useEffect(() => {
+    const user = getLastUserAcessFromLocal();
+    setUserBalance(user.accountBalance);
     if (sellStocks) {
       return setLabelBuyOrSell('venda');
     }
@@ -38,7 +40,6 @@ const BuyStocks = () => {
     };
     getDataAPI();
   }, [])
-  
 
   const handleInput = ({ target: { value } }) => {
     const unitValue = data[0].vl_fechamento;
@@ -49,10 +50,12 @@ const BuyStocks = () => {
   
   const handleClick = () => {
     if (sellStocks) {
-      
+      console.log('vendeu');
       return;
     }
-    setTestNumber(totalValue.total);
+    if (userBalance < totalValue.total) {
+      console.log('tá pobre mano');
+    }
     // history.push('/wallet');
   }
 
@@ -68,23 +71,10 @@ const BuyStocks = () => {
         <table>
           <thead>
             <tr>
-            {listHead.map(item => (<th>{ item }</th>))}
+            {listHead.map(item => (<th key={ item }>{ item }</th>))}
             </tr>
           </thead>
           <BodyInfoStock />
-          {/* <tbody>
-            {data
-                .map(({ id, cd_acao, vl_fechamento }) => (
-                <tr key={ id }>
-                    <td>{ cd_acao }</td>
-                    <td>{inputQuantity ? inputQuantity : 1}</td>
-                    <td>{inputQuantity
-                      ? convertValue(vl_fechamento * inputQuantity)
-                      : convertValue(vl_fechamento)}
-                    </td>
-                </tr>
-                ))}
-          </tbody> */}
         </table>
       </section>
       {/* ARÉA DE INPUT DA QUANTIDADE DE AÇÕES*/}
@@ -123,7 +113,6 @@ const BuyStocks = () => {
       {!sellStocks && (<div>
         <AccountBalance />
       </div>)}
-
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import usePath from '../hooks/usePath';
 import mockListStocks from '../mocks/mockListStocks';
 import { recordStock } from '../redux/actions';
-import { getLastUserAcessFromLocal } from '../services/localStorage';
+import { getLastUserAcessFromLocal, updateDataUserLocalSt } from '../services/localStorage';
 import AccountBalance from './AccountBalance';
 import BodyInfoStock from './BodyInfoStock';;
 
@@ -20,13 +20,13 @@ const BuyStocks = () => {
   const history = useHistory();
   const [labelBuyOrSell, setLabelBuyOrSell] = useState('');
   const [data, setData] = useState([]);
-  const [userBalance, setUserBalance] = useState([]);
+  const [user, setUser] = useState([]);
   const [inputQuantity, setInputQuantity] = useState('');
   const [totalValue, setTotalValue] = useState({ total: '', convertedValue: convertValue(0) });
 
   useEffect(() => {
     const user = getLastUserAcessFromLocal();
-    setUserBalance(user.accountBalance);
+    setUser(user);
     if (sellStocks) {
       return setLabelBuyOrSell('venda');
     }
@@ -53,9 +53,12 @@ const BuyStocks = () => {
       console.log('vendeu');
       return;
     }
-    if (userBalance < totalValue.total) {
-      console.log('tá pobre mano');
+    if (user.accountBalance < totalValue.total) {
+      return alert('Você não possui saldo suficiente para essa compra!');
     }
+    updateDataUserLocalSt('recordsStocks', data[0], user);
+    return alert(`Parabéns, você acaba de comprar 
+    ${inputQuantity } ${Number(inputQuantity) === 1? 'ação' : 'ações'} nessa empresa!`);
     // history.push('/wallet');
   }
 

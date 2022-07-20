@@ -34,8 +34,8 @@ export const addAcessUserToLocal = (user) => {
 
 export const getUsersFromLocal = () => JSON
   .parse(localStorage.getItem('users'));
-export const setNewUserToLocal = (newUser) => localStorage
-  .setItem('users', JSON.stringify(newUser));
+export const setUserToLocal = (newList) => localStorage
+  .setItem('users', JSON.stringify(newList));
 
 export const addNewUserToLocal = (newUser) => {
   if (!JSON.parse(localStorage.getItem('users'))) {
@@ -51,7 +51,23 @@ export const addNewUserToLocal = (newUser) => {
       createdAt: new Date(),
       accountBalance: newUser.inputValueInitial,
       recordsStocks:[], financialTransactions: [] };
-    setNewUserToLocal([...usersStored, initializeInfos]);
+    setUserToLocal([...usersStored, initializeInfos]);
     addAcessUserToLocal(initializeInfos);
+  }
+};
+
+export const setAccountInfoToLocal = (financialTransaction) => localStorage
+  .setItem('usersAccountInfo', JSON.stringify(financialTransaction));
+
+export const updateDataUserLocalSt = (type, newUpdate, user) => {
+  if (newUpdate) {
+    const usersStored= getUsersFromLocal();
+    const userFind = usersStored.find(({ id }) => id === Number(user.id));
+    // const results = mockListStocks.find(({ id }) => id === Number(idPath)); 
+    const prevListStored = userFind[type];
+    const userUpdated = { ...userFind, [type]: [...prevListStored, newUpdate] };
+    const removeUser = usersStored.filter(userStore => userStore.id !== Number(user.id));
+    setUserToLocal([...removeUser, userUpdated ]);
+    addAcessUserToLocal(userUpdated);
   }
 };

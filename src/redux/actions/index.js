@@ -1,4 +1,4 @@
-import { SET_USER_INFOS } from './actionTypes';
+import { DISABLE_BUTTON, SAVE_RECORD_STOCK, SET_USER_INFOS } from './actionTypes';
 
 export const saveUser = (user) => (
   {
@@ -9,7 +9,14 @@ export const saveUser = (user) => (
 
 export const disabledButton = (isAble) => (
   {
-    type: SET_USER_INFOS,
+    type: DISABLE_BUTTON,
     payload: isAble,
+  }
+);
+
+export const recordStock = (stock) => (
+  {
+    type: SAVE_RECORD_STOCK,
+    payload: stock,
   }
 );

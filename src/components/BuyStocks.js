@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import usePath from '../hooks/usePath';
 import mockListStocks from '../mocks/mockListStocks';
+import { recordStock } from '../redux/actions';
 import AccountBalance from './AccountBalance';
+import BodyInfoStock from './BodyInfoStock';
 
 const listHead = ['Ação', 'Quantidade', 'Valor'];
 const arrayTest = [{ name: 'Azul4', qtd: 100, value: 350, unitValue: 3.5 }];
@@ -13,6 +16,7 @@ const convertValue = (total) => {
 
 const BuyStocks = () => {
   const { sellStocks, titleAction, id: idPath } = usePath();
+  const dispatch = useDispatch();
   const history = useHistory();
   const [labelBuyOrSell, setLabelBuyOrSell] = useState('');
   const [data, setData] = useState([]);
@@ -30,6 +34,7 @@ const BuyStocks = () => {
       // const results = await response.json();
       const results = mockListStocks.find(({ id }) => id === Number(idPath)); // use mock
       setData([results]);
+      dispatch(recordStock(results));
     };
     getDataAPI();
   }, [])
@@ -66,7 +71,8 @@ const BuyStocks = () => {
             {listHead.map(item => (<th>{ item }</th>))}
             </tr>
           </thead>
-          <tbody>
+          <BodyInfoStock />
+          {/* <tbody>
             {data
                 .map(({ id, cd_acao, vl_fechamento }) => (
                 <tr key={ id }>
@@ -78,7 +84,7 @@ const BuyStocks = () => {
                     </td>
                 </tr>
                 ))}
-          </tbody>
+          </tbody> */}
         </table>
       </section>
       {/* ARÉA DE INPUT DA QUANTIDADE DE AÇÕES*/}

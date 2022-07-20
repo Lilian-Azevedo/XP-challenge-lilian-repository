@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import usePath from '../hooks/usePath';
 
-const listHead = ['Ação', 'Quantidade', 'Valor'];
-
 const convertValue = (total) => {
   return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(total);
 };

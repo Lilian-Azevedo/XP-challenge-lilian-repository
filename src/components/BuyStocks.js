@@ -30,7 +30,10 @@ const BuyStocks = () => {
     const getDataAPI = async () => {
       // const response = await fetch(endpoint);
       // const results = await response.json();
-      const results = mockListStocks.find(({ id }) => id === Number(idPath)); // use mock
+      const results = sellStocks
+        ? user.recordsStocks.find(({ id }) => id === Number(idPath)) // use records
+        : mockListStocks.find(({ id }) => id === Number(idPath)); // use mock
+      console.log(results);
       setData([results]);
       dispatch(recordStock(results));
     };

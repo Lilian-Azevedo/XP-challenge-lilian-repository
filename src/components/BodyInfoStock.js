@@ -14,7 +14,7 @@ const BodyInfoStock = () => {
   useEffect(() => {
     setData([...recordStock]);
     console.log(recordStock);
-  }, [])
+  }, [recordStock])
   
 
   return (

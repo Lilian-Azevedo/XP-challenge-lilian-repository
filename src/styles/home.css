@@ -2,10 +2,13 @@
     width: 200px;
     height: 200px;
     color: var(--first-color);
+    margin-bottom: var(--mb-3);
 }
 
 .main-title {
     font-size: var(--bigger-font-size);
+    font-family: 'Kalam', sans-serif;
+    margin-bottom: var(--mb-2);
 }
 
 .details-page {
@@ -18,22 +21,23 @@
 }
 
 .section-btns {
-    
+    display: flex;
+    flex-direction: column;
+    width: 250px;
 }
 
 .button-general {
     font-size: var(--h3-font-size);
     font-weight: var(--font-medium);
     cursor:pointer;
-    /* color: var(--first-color-second);
-     */
-    background-color: var(--first-color-alt);
-    color: var(--body-color);
-    padding: 5px;
-    border-radius: 5px;
+    background-color: var(--body-color);
+    color: var(--first-color);
+    padding: 5px 20px 5px 20px;
+    border: 1px solid var(--first-color);
+    margin-bottom: var(--mb-0-5);
 }
 
-.button:hover {
+.button-general:hover {
     background-color: var(--first-color-alt);
 }
 

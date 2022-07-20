@@ -1,0 +1,23 @@
+.big-picture {
+    width: 200px;
+    height: 200px;
+    color: var(--first-color);
+}
+
+.main-title {
+    font-size: var(--bigger-font-size);
+}
+
+.details-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-general {
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-medium);
+    cursor:pointer;
+    color: var(--first-color-second);
+}

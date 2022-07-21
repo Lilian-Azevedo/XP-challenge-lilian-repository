@@ -13,14 +13,14 @@ const NavBar = () => {
           <ul className="nav_list grid">
 
             <li className="nav_item">
-              <Link to="/user">
+              <Link to="/login">
                 <Unicons.UilUser size="30" color="#E4B600"/>
               </Link>
-              Usuário
+              Trocar Usuário
             </li>
 
             <li className="nav_item">
-              <Link to="/acount">
+              <Link to="/account">
                 <Unicons.UilMoneyWithdraw size="30" color="#E4B600"/>
               </Link>
               Conta
@@ -30,7 +30,7 @@ const NavBar = () => {
               <Link to="/wallet">
                 <Unicons.UilWallet size="30" color="#E4B600"/>
               </Link>
-              Carteira de ações
+              Carteira de Ações
             </li>
 
             <li className="nav_item">

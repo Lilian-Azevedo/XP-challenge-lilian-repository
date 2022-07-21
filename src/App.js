@@ -19,7 +19,7 @@ function App() {
         render={ (props) => (<BuySaleStocks { ...props } />) }/>
       <Route path="/sell/:id"
         render={ (props) => (<BuySaleStocks { ...props } />) }/>
-      <Route path="/acount" component={ WithdrawDeposit } />
+      <Route path="/account" component={ WithdrawDeposit } />
       <Route path="*" component={ NotFound } />
     </Switch>);
 }

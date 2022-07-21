@@ -75,6 +75,7 @@ const SignIn = () => {
         />
         <input
           autoComplete="off"
+          data-testid="senha-input"
           type="password"
           onChange={ handleInput }
           onKeyDown={ handleEnterClick }

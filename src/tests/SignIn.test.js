@@ -18,8 +18,8 @@ afterEach(() => localStorage.clear());
 
 describe('Teste a página SignIn', () => {
   test('1 - Teste se a página contém um title', () => {
-    const loginTitle = screen.getByRole('heading', { name: 'Crie ', level: 1 });
-    expect(loginTitle).toBeTruthy();
+    const signInTitle = screen.getByRole('heading', { name: 'Crie a sua conta!', level: 1 });
+    expect(signInTitle).toBeTruthy();
   });
   test('2 - Teste se a página contém input para campo de email', () => {
     const inputEmail = screen.getByRole('textbox', { name: 'Email' });
@@ -28,5 +28,9 @@ describe('Teste a página SignIn', () => {
   test('3 - Teste se a página contém um input de senha', () => {
     const inputPassword = screen.getByTestId('senha-input');
     expect(inputPassword).toBeTruthy();
+  });
+  test('2 - Teste se a página contém input para campo de nome', () => {
+    const inputEmail = screen.getByRole('textbox', { name: 'Nome' });
+    expect(inputEmail).toBeTruthy();
   });
 });

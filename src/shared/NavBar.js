@@ -40,7 +40,7 @@ const NavBar = () => {
               Sair
             </li>
           </ul>
-          <div onClick={() => setShowed(false)} classNameName='nav_close'>
+          <div onClick={() => setShowed(false)} className='nav_close'>
             <Unicons.UilMultiply  size="30" color="#E4B600" />
           </div>
         </div>)

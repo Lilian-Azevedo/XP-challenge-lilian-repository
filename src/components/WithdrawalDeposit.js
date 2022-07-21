@@ -1,35 +1,37 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { saveAccountBalance } from '../redux/actions';
-import { addDepositWithdtoLocal } from '../services/localStorage';
+import { addDepositWithdtoLocal, getLastUserAcessFromLocal, updateAccountLocalSt } from '../services/localStorage';
 
-let testData = { id: 1, name: 'Lilian', email: '', lastAcess: '', stocks: [{}, {}], records: [{}, {}], accountBalance: 958 };
 
 const WithdrawalDeposit = () => {
   const history = useHistory();
-  const [inputValue, setInputValue] = useState(0);
-  const [data, setData] = useState();
+  const [inputValue, setInputValue] = useState('');
+  const [user, setUser] = useState();
+  const [operationType, setOperationType] = useState('');
   const dispatch = useDispatch();
 
   const handleInput = ({ target: { value } }) => {
     setInputValue(value);
   }
   
-  const handleOperation = ({ target: { value } }) => {
-    const { accountBalance, id, ...infoUser } = user;
+  const handleClick = () => {
+    const { accountBalance, id } = user;
     let newAccountBalance = 0;
-    if (value === 'Depósito') {
+    if (operationType === 'Depósito') {
       addDepositWithdtoLocal({ type: 'Depósito', value: inputValue}, id);
+      console.log('depo');
       newAccountBalance = accountBalance + Number(inputValue);
+      updateAccountLocalSt('Depósito', inputValue, { id });
     } else {
       addDepositWithdtoLocal({ type: 'Retirada', value: inputValue}, id);
+      console.log('ret');
+      updateAccountLocalSt('Retirada', inputValue, { id });
       newAccountBalance = accountBalance - Number(inputValue);
     }
     dispatch(saveAccountBalance(newAccountBalance));
-  }
-  
-  const handleClick = (event) => {
-    console.log('sai da pagina');
+    history.push('/wallet');
   }
 
   const handleEnterClick = (event) => {
@@ -39,33 +41,12 @@ const WithdrawalDeposit = () => {
  
   useEffect(() => {
     const user = getLastUserAcessFromLocal();
-    setData(user);
+    setUser(user);
     dispatch(saveAccountBalance(user.accountBalance ? user.accountBalance : 0));
   }, []);
   
-
-  
-
   return (
     <div>
-      <div>
-        <button
-            type="button"
-            onClick={ handleOperation }
-            name="deposit"
-            value="Depósito"
-        >
-            Depósito
-        </button>
-        <button
-            type="button"
-            onClick={ handleOperation }
-            name="withdrawal"
-            value="Retirada"
-        >
-            Retirada
-        </button>
-      </div>   
       {/* ARÉA DE INPUT DA QUANTIDADE DE AÇÕES*/}
       <section>
         <span>Digite o valor</span>
@@ -75,10 +56,28 @@ const WithdrawalDeposit = () => {
           onKeyDown={ handleEnterClick }
           value={ inputValue }
           name="inputValue"
-          placeholder="Informe quantas ações"
+          placeholder="Informe o valor em reais"
         />
       </section>
-      {/* BOTÕES DE VOLTAR E COMPRAR/VENDER */}
+      <div>
+        <button
+            type="button"
+            onClick={ ({ target }) => setOperationType(target.value) }
+            name="deposit"
+            value="Depósito"
+        >
+            Depósito
+        </button>
+        <button
+            type="button"
+            onClick={ ({ target }) => setOperationType(target.value) }
+            name="withdrawal"
+            value="Retirada"
+        >
+            Retirada
+        </button>
+      </div>   
+      {/* BOTÕES DE VOLTAR E CONFIRMAR */}
       <div>
         <button
             type="button"
@@ -89,6 +88,7 @@ const WithdrawalDeposit = () => {
         <button
             type="button"
             onClick={ handleClick }
+            disabled={ (!operationType || !inputValue) ? true : false }
         >
             Confirmar
         </button>

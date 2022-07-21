@@ -28,6 +28,7 @@ export const addNewUserToLocal = (newUser) => {
   }
   if (newUser) {
     const usersStored = getUsersFromLocal();
+    console.log(newUser);
     const initializeInfos = { 
       id: newUser.id,
       name: newUser.inputName,
@@ -35,6 +36,7 @@ export const addNewUserToLocal = (newUser) => {
       createdAt: new Date(),
       accountBalance: newUser.inputValueInitial,
       recordsStocks:[], financialTransactions: [] };
+    console.log(initializeInfos);
     setUserToLocal([...usersStored, initializeInfos]);
     addAcessUserToLocal(initializeInfos);
   }
@@ -81,10 +83,10 @@ export const updateDataUserLocalSt = (type, newUpdate, user) => {
 };
 
 export const updateAccountLocalSt = (type, value, user) => {
-  if (value) {
+  if (type) {
     const usersStored = getUsersFromLocal();
     const userFind = usersStored.find(({ id }) => id === Number(user.id));
-    const userUpdatedBalance = (type === 'compra' || type === 'Retirada'
+    const userUpdatedBalance = ((type === 'compra' || type === 'Retirada')
       ? (Number(userFind.accountBalance) - Number(value))
       : (Number(userFind.accountBalance) + Number(value)));
     const userUpdated = { ...userFind, accountBalance: userUpdatedBalance };
@@ -97,53 +99,16 @@ export const updateAccountLocalSt = (type, value, user) => {
 export const addDepositWithdtoLocal = (newUpdate, userId) => {
   if (newUpdate) {
     const usersStored = getUsersFromLocal();
-    const user = usersStored.find(({ id }) => id === Number(user.id));
+    const user = usersStored.find(({ id }) => id === Number(userId));
     const transation = { 
       id: generateId(),
-      type: newUpdate.transation,
+      type: newUpdate.type,
       donedAt: new Date(),
       value: newUpdate.value };
     const userUpdated = { ...user, financialTransactions: [...user.financialTransactions, transation] };
     const removeUser = usersStored.filter(userStore => userStore.id !== Number(userId));
     setUserToLocal([...removeUser, userUpdated ]);
     addAcessUserToLocal(userUpdated);
-    updateAccountLocalSt('Depósito', newUpdate.value, { id: userId });
+    // updateAccountLocalSt(newUpdate.transation, newUpdate.value, { id: userId });
   }
 };
-
-// export const updateAccountLocalSt = (type, value, user) => {
-//   if (value) {
-//     const usersStored = getUsersFromLocal();
-//     const userFind = usersStored.find(({ id }) => id === Number(user.id));
-//     const userUpdatedBalance = (type === 'compra'
-//       ? (Number(userFind.accountBalance) - Number(value))
-//       : (Number(userFind.accountBalance) + Number(value)));
-//     const userUpdated = { ...userFind, accountBalance: userUpdatedBalance };
-//     const removeUser = usersStored.filter(userStore => userStore.id !== Number(user.id));
-//     setUserToLocal([...removeUser, userUpdated ]);
-//     addAcessUserToLocal(userUpdated);
-//   }
-// };
-// export const getUsersFromLocal = () => JSON
-//   .parse(localStorage.getItem('finantialTransations'));
-// export const setUserToLocal = (newList) => localStorage
-//   .setItem('finantialTransations', JSON.stringify(newList));
-
-// export const addNewTransationToLocal = (newTransation) => {
-//   if (!JSON.parse(localStorage.getItem('finantialTransations'))) {
-//     localStorage.setItem('finantialTransations', JSON
-//       .stringify([]));
-//   }
-//   if (newTransation) {
-//     const usersStored = getUsersFromLocal();
-//     const initializeInfos = { 
-//       id: newTransation.id,
-//       name: newTransation.inputName,
-//       email: newTransation.inputEmail,
-//       createdAt: new Date(),
-//       accountBalance: newTransation.inputValueInitial,
-//       recordsStocks:[], financialTransactions: [] };
-//     setUserToLocal([...usersStored, initializeInfos]);
-//     addAcessUserToLocal(initializeInfos);
-//   }
-// };

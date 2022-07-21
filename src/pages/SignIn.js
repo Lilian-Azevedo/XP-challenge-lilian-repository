@@ -8,7 +8,7 @@ const INITIAL_STATE = {
   inputName: '',
   inputEmail: '',
   inputPassword: '',
-  inputValueInitial: '',
+  inputValueInitial: 0,
 }
 
 const SignIn = () => {

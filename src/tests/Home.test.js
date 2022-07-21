@@ -23,4 +23,12 @@ describe('Teste a página de Home', () => {
     userEvent.click(buttonLogin);
     expect(history.location.pathname).toBe('/login');
   });
+  test('4 - Teste se a página contém um botão de criar user que redireciona para a página /create', () => {
+    const { history } = renderWithRouterAndStore(<App />);
+    const buttonCreate = screen.getByRole('button', { name: 'Crie uma conta' });
+    expect(buttonCreate).toBeTruthy();
+
+    userEvent.click(buttonCreate);
+    expect(history.location.pathname).toBe('/create');
+  });
 });

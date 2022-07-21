@@ -19,11 +19,14 @@ describe('Teste a página de Login', () => {
     const loginTitle = screen.getByRole('heading', { name: 'Acesse sua conta', level: 1 });
     expect(loginTitle).toBeTruthy();
   });
-//   test('2 - Teste se a página contém uma imagem em forma de input', () => {
-//     renderWithRouterAndStore(<App />);
-//     const imgHomePage = screen.getByRole('button', { name: 'home Page' });
-//     expect(imgHomePage).toBeTruthy();
-//   });
+  test('2 - Teste se a página contém input para campo de email', () => {
+    const inputEmail = screen.getByRole('textbox', { name: 'Email' });
+    expect(inputEmail).toBeTruthy();
+  });
+  test('3 - Teste se a página contém um input de senha', () => {
+    const inputPassword = screen.getByTestId('senha-input');
+    expect(inputPassword).toBeTruthy();
+  });
 //   test('3 - Teste se a página contém um botão de login que redireciona para a página de login', () => {
 //     const { history } = renderWithRouterAndStore(<App />);
 //     const buttonLogin = screen.getByRole('button', { name: 'Faça Login' });

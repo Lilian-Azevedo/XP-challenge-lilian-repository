@@ -62,8 +62,10 @@ const Login = () => {
       <div>
         <h1>Acesse sua conta</h1>
       </div>
-      <section>
+      <form>
+        <label htmlFor='email'>Email
         <input
+          id='email'
           type="text"
           onChange={ handleInput }
           onKeyDown={ handleEnterClick }
@@ -71,8 +73,11 @@ const Login = () => {
           name="inputEmail"
           placeholder="Email"
         />
+        </label>
+        <label htmlFor='senha'>Senha
         <input
-          autoComplete="off"
+          id='senha'
+          data-testid="senha-input"
           type="password"
           onChange={ handleInput }
           onKeyDown={ handleEnterClick }
@@ -80,7 +85,8 @@ const Login = () => {
           name="inputPassword"
           placeholder="Senha"
         />
-      </section>
+        </label>
+      </form>
       { lastUser 
       && (<div>
         <h1>OU</h1>

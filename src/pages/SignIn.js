@@ -3,12 +3,13 @@ import { useHistory } from 'react-router-dom';
 import { generateId } from '../services/functions';
 import { addDepositWithdtoLocal, addNewUserToLocal } from '../services/localStorage';
 import verifyValidation from '../validations/validateEmail';
+import '../styles/signIn.css';
 
 const INITIAL_STATE = {
   inputName: '',
   inputEmail: '',
   inputPassword: '',
-  inputValueInitial: 0,
+  inputValueInitial: '',
 }
 
 const SignIn = () => {
@@ -85,36 +86,44 @@ const SignIn = () => {
 
         <section>
           <span>Deseja adicionar algum valor agora?</span>
-          <div onChange={ onChangeAddValue }>
-            <input type="radio" value="yes" name="addValue" /> Sim
-            <input type="radio" value="no" name="addValue" /> Não
-          </div>
-          <div>
-            <input
-              disabled={ disableInput }
-              type="number"
-              onChange={ handleInput }
-              onKeyDown={ handleEnterClick }
-              value={ inputValueInitial }
-              name="inputValueInitial"
-              placeholder="Valor"
-            />
+          <div className="container-radio-button" onChange={ onChangeAddValue }>
+            <label htmlFor='yes'>
+              <input type="radio" value="yes" name="addValue" />Sim
+            </label>
+            <label htmlFor='no'>
+              <input type="radio" value="no" name="addValue" />Não
+            </label>
           </div>
         </section>
 
-        <div>
+        <div className='section-add-value'>
+          <input
+            // className='button-general button--flex'
+            disabled={ disableInput }
+            type="number"
+            onChange={ handleInput }
+            onKeyDown={ handleEnterClick }
+            value={ inputValueInitial }
+            name="inputValueInitial"
+            placeholder="Digite aqui o valor"
+          />
+        </div>
+
+        <div className='section-btns'>
           <button
               type="button"
-              onClick={ () => history.push('/') }
-          >
-          Voltar
-          </button>
-          <button
-              type="button"
+              className='button-general button--flex'
               onClick={ handleClick }
               disabled={ disableButton }
           >
           Salvar
+          </button>
+          <button
+              type="button"
+              className='button-general button--flex'
+              onClick={ () => history.push('/') }
+          >
+          Voltar
           </button>
         </div>
     </div>

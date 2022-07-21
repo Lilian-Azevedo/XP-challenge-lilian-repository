@@ -1,4 +1,4 @@
-/* .big-picture {
+.big-picture {
     width: 200px;
     height: 200px;
     color: var(--first-color);
@@ -45,4 +45,4 @@
 .button---flex {
     display: inline-flex;
     align-items: center;
-} */
+}

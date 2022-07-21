@@ -59,7 +59,7 @@ const Login = () => {
   const { inputEmail, inputPassword } = userData;
 
   return (
-    <div className="login-page">
+    <div className="general-page">
       <div>
         <h1 className='h1-title'>Acesse sua conta</h1>
       </div>

@@ -50,9 +50,9 @@ const SignIn = () => {
   const { inputName, inputEmail, inputPassword, inputValueInitial } = userData;
 
   return (
-    <div className="details-page">
+    <div className="general-page">
       <div>
-        <h1>Criar usuário</h1>
+        <h1 className='h1-title'>Crie a sua conta!</h1>
       </div>
   
       <section>

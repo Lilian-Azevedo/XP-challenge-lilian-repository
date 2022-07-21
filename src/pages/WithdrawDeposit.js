@@ -6,7 +6,7 @@ import WithdrawalDeposit from '../components/WithdrawalDeposit';
 import Header from '../shared/Header';
 
 const WithdrawDeposit = () => (
-  <div className="details-page">
+  <div className="general-page">
     <Header />
     <AccountBalance />
     <WithdrawalDeposit />

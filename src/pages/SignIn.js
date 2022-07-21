@@ -59,6 +59,7 @@ const SignIn = () => {
       <section>
         <input
           type="text"
+          data-testid="nome-input"
           onChange={ handleInput }
           onKeyDown={ handleEnterClick }
           value={ inputName }
@@ -67,6 +68,7 @@ const SignIn = () => {
         />
         <input
           type="text"
+          data-testid="email-input"
           onChange={ handleInput }
           onKeyDown={ handleEnterClick }
           value={ inputEmail }

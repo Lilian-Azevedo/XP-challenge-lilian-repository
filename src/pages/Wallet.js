@@ -5,7 +5,7 @@ import UserStocks from '../components/UserStocks';
 import Header from '../shared/Header';
 
 const WalletStocks = () => (
-  <div className="details-page">
+  <div className="general-page">
     <Header />
     <UserStocks />
     <AvailableStocks />

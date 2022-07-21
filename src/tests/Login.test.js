@@ -53,12 +53,16 @@ describe('Teste a página de Login', () => {
 
     expect(globalHistory.location.pathname).toBe('/not-found');
   });
-//   test('4 - Teste se a página contém um botão de criar user que redireciona para a página /create', () => {
-//
-//     const buttonCreate = screen.getByRole('button', { name: 'Crie uma conta' });
-//     expect(buttonCreate).toBeTruthy();
+  test(`6 - Teste se, ao digitar as informações de user criado,
+  o botão desabilita e redireciona para /wallet`, () => {
+  const buttonEnter = screen.getByRole('button', { name: 'Entrar' });
+  const inputEmail = screen.getByRole('textbox', { name: 'Email' });
+  const inputPassword = screen.getByTestId('senha-input');
 
-//     userEvent.click(buttonCreate);
-//     expect(history.location.pathname).toBe('/create');
-//   });
+  userEvent.type(inputEmail, EMAIL_FAKE);
+  userEvent.type(inputPassword, PASSWORD_FAKE);
+  userEvent.click(buttonEnter);
+
+  expect(globalHistory.location.pathname).toBe('/wallet');
+}); // falta colocar mock ls
 });

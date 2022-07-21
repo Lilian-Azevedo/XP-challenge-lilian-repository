@@ -5,6 +5,7 @@ import verifyValidation from '../validations/validateEmail';
 import { useHistory } from 'react-router-dom';
 import { addAcessUserToLocal, getLastUserAcessFromLocal } from '../services/localStorage';
 import { verifyExistence } from '../services/verifyExistenceUser';
+import '../styles/login.css';
 
 const INITIAL_STATE = {
   inputEmail: '',
@@ -58,58 +59,74 @@ const Login = () => {
   const { inputEmail, inputPassword } = userData;
 
   return (
-    <div>
+    <div className="login-page">
       <div>
-        <h1>Acesse sua conta</h1>
+        <h1 className='h1-title'>Acesse sua conta</h1>
       </div>
-      <form>
-        <label htmlFor='email'>Email
-        <input
-          id='email'
-          type="text"
-          onChange={ handleInput }
-          onKeyDown={ handleEnterClick }
-          value={ inputEmail }
-          name="inputEmail"
-          placeholder="Email"
-        />
-        </label>
-        <label htmlFor='senha'>Senha
-        <input
-          id='senha'
-          data-testid="senha-input"
-          type="password"
-          onChange={ handleInput }
-          onKeyDown={ handleEnterClick }
-          value={ inputPassword }
-          name="inputPassword"
-          placeholder="Senha"
-        />
-        </label>
+
+      <form className='form-login-page'>
+        <div>
+          <label htmlFor='email'>Email
+          <input
+            id='email'
+            type="text"
+            onChange={ handleInput }
+            onKeyDown={ handleEnterClick }
+            value={ inputEmail }
+            name="inputEmail"
+            placeholder="Email"
+            autoComplete='off'
+          />
+          </label>
+        </div>
+        <div>
+          <label htmlFor='senha'>Senha
+          <input
+            id='senha'
+            data-testid="senha-input"
+            type="password"
+            onChange={ handleInput }
+            onKeyDown={ handleEnterClick }
+            value={ inputPassword }
+            name="inputPassword"
+            placeholder="Senha"
+            autoComplete='off'
+          />
+          </label>
+        </div>
       </form>
-      { lastUser 
-      && (<div>
-        <h1>OU</h1>
-        <button
-          className="login-last-user"
-          type='button'
-          onClick={ loginLastUser }>Faça login como { lastUser.name }</button>
-      </div>)}
-      <div>
+      <div className='section-btns'>
         <button
             type="button"
-            onClick={ () => history.push('/') }
-        >
-        Voltar
-        </button>
-        <button
-            type="button"
+            className='button-general button--flex'
             onClick={ handleClick }
             disabled={ disableButton }
         >
         Entrar
         </button>
+        <button
+            type="button"
+            className='button-general button--flex'
+            onClick={ () => history.push('/') }
+        >
+        Voltar
+        </button>
       </div>
+
+      { lastUser && 
+        (<div className='last-acess-container'>
+          <div>
+            <h1 className='h1-title'>OU</h1>
+          </div>
+
+          <div>
+            <button
+              className="button-last-user button-general"
+              type='button'
+              onClick={ loginLastUser }>Faça login como { lastUser.name }
+            </button>
+          </div>
+        </div>)}
     </div>);
 }
 

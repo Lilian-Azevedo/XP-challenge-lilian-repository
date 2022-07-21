@@ -1,0 +1,69 @@
+.h1-title {
+    font-size: var(--big-font-size);
+    font-family: 'Kalam', sans-serif;
+    text-align: center;
+}
+
+.login-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.section-btns {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+}
+
+.button-general {
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-medium);
+    cursor:pointer;
+    background-color: var(--body-color);
+    color: var(--first-color);
+    padding: 5px 20px 5px 20px;
+    border: 1px solid var(--first-color);
+    margin-bottom: var(--mb-0-5);
+}
+
+.button-general:hover {
+    background-color: white;
+    color: var(--first-color-alt);
+}
+
+.button---flex {
+    display: inline-flex;
+    align-items: center;
+}
+
+input, label {
+    display:block;
+    color: var(--first-color);
+    font-size: var(--h3-font-size);
+    border-radius: 4px; 
+    padding: 5px 20px;
+}
+
+input[type=text], input[type=password]{
+    background-color: #1b1b19;
+    font-family: 'Kalam';
+    margin-bottom: var(--mb-1-5);
+    border-top: none;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: rgb(153, 43, 43);
+}
+
+.button-last-user {
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-medium);
+    cursor:pointer;
+    background-color: var(--first-color-alt);
+    color: var(--body-color);
+    border-radius: 20px;
+}

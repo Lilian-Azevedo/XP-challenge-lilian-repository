@@ -1,4 +1,4 @@
-.big-picture {
+/* .big-picture {
     width: 200px;
     height: 200px;
     color: var(--first-color);
@@ -11,7 +11,7 @@
     margin-bottom: var(--mb-2);
 }
 
-.details-page {
+.home-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,10 +38,11 @@
 }
 
 .button-general:hover {
-    background-color: var(--first-color-alt);
+    background-color: white;
+    color: var(--first-color-alt);
 }
 
 .button---flex {
     display: inline-flex;
     align-items: center;
-}
+} */

@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { getLastUserAcessFromLocal } from '../services/localStorage';
-
-const convertedValue = (value) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(Number(value));
+import { useSelector } from 'react-redux';
+import { convertedValue } from '../services/functions';
 
 const AccountBalance = () => {
   const [data, setData] = useState(convertedValue(0));
-  // 
+  const { accountBalance } = useSelector(state => state.walletReducer);
+
   useEffect(() => {
-    const account = getLastUserAcessFromLocal() ? getLastUserAcessFromLocal().accountBalance : 0;
-    setData(convertedValue(account));
-  }, [])
+    setData(convertedValue(accountBalance));
+  }, [accountBalance]);
   
 
   return (

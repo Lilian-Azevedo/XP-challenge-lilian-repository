@@ -1,4 +1,4 @@
-import { DISABLE_BUTTON, SAVE_RECORD_STOCK, SET_USER_INFOS } from './actionTypes';
+import { DISABLE_BUTTON, SAVE_ACCOUNT_BALANCE, SAVE_RECORD_STOCK, SET_USER_INFOS } from './actionTypes';
 
 export const saveUser = (user) => (
   {
@@ -18,5 +18,12 @@ export const recordStock = (stock) => (
   {
     type: SAVE_RECORD_STOCK,
     payload: stock,
+  }
+);
+
+export const saveAccountBalance = (accountB) => (
+  {
+    type: SAVE_ACCOUNT_BALANCE,
+    payload: accountB,
   }
 );

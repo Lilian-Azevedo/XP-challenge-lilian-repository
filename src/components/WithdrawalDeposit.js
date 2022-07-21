@@ -1,27 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { saveAccountBalance } from '../redux/actions';
+import { addDepositWithdtoLocal } from '../services/localStorage';
 
 let testData = { id: 1, name: 'Lilian', email: '', lastAcess: '', stocks: [{}, {}], records: [{}, {}], accountBalance: 958 };
 
 const WithdrawalDeposit = () => {
   const history = useHistory();
-  const [inputValue, setInputValue] = useState('');  
+  const [inputValue, setInputValue] = useState(0);
+  const [data, setData] = useState();
+  const dispatch = useDispatch();
 
   const handleInput = ({ target: { value } }) => {
     setInputValue(value);
   }
   
-  const handleOperation = ({ target: { name } }) => {
-    let newAccountBalance = Number(testData.accountBalance);
-    const { accountBalance, ...testReload } = testData; 
-    if (name === 'deposit') {
-      newAccountBalance = newAccountBalance + Number(inputValue);
-// LocalStorage
-      testData = {...testReload, accountBalance: newAccountBalance };
-      return;
+  const handleOperation = ({ target: { value } }) => {
+    const { accountBalance, id, ...infoUser } = user;
+    let newAccountBalance = 0;
+    if (value === 'Depósito') {
+      addDepositWithdtoLocal({ type: 'Depósito', value: inputValue}, id);
+      newAccountBalance = accountBalance + Number(inputValue);
+    } else {
+      addDepositWithdtoLocal({ type: 'Retirada', value: inputValue}, id);
+      newAccountBalance = accountBalance - Number(inputValue);
     }
-    newAccountBalance = newAccountBalance - Number(inputValue);
-    testData = {...testReload, accountBalance: newAccountBalance };
+    dispatch(saveAccountBalance(newAccountBalance));
   }
   
   const handleClick = (event) => {
@@ -32,6 +36,16 @@ const WithdrawalDeposit = () => {
     if (event.key === 'Enter') return handleClick();
   }
 
+ 
+  useEffect(() => {
+    const user = getLastUserAcessFromLocal();
+    setData(user);
+    dispatch(saveAccountBalance(user.accountBalance ? user.accountBalance : 0));
+  }, []);
+  
+
+  
+
   return (
     <div>
       <div>
@@ -39,6 +53,7 @@ const WithdrawalDeposit = () => {
             type="button"
             onClick={ handleOperation }
             name="deposit"
+            value="Depósito"
         >
             Depósito
         </button>
@@ -46,6 +61,7 @@ const WithdrawalDeposit = () => {
             type="button"
             onClick={ handleOperation }
             name="withdrawal"
+            value="Retirada"
         >
             Retirada
         </button>

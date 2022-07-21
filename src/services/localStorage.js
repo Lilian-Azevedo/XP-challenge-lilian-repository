@@ -1,3 +1,5 @@
+import { generateId } from "./functions";
+
 export const getLastUserAcessFromLocal = () => JSON
   .parse(localStorage.getItem('userAcesses'));
 export const setUserAcessToLocal = (newUser) => localStorage
@@ -13,25 +15,7 @@ export const addAcessUserToLocal = (user) => {
   }
 };
 
-// export const getAccountInfoFromLocal = () => JSON
-//   .parse(localStorage.getItem('usersAccountInfo'));
-// export const setAccountInfoToLocal = (financialTransaction) => localStorage
-//   .setItem('usersAccountInfo', JSON.stringify(financialTransaction));
-
-// export const addAccountInfoToLocal = (type, usersAccountInfo) => {
-//   if (!JSON.parse(localStorage.getItem('usersAccountInfo'))) {
-//     localStorage.setItem('usersAccountInfo', JSON
-//       .stringify({ }));
-//   }
-//   if (usersAccountInfo) {
-//     const { id, ingredients } = usersAccountInfo;
-//     const AccountInfoStored = getAccountInfoFromLocal();
-//     const keyDataStored = AccountInfoStored[type];
-//     const newObjecttype = { ...keyDataStored, [id]: ingredients };
-//     setAccountInfoToLocal({ ...AccountInfoStored, [type]: newObjecttype });
-//   }
-// };
-
+// Armazenamento de usuários cadastrados
 export const getUsersFromLocal = () => JSON
   .parse(localStorage.getItem('users'));
 export const setUserToLocal = (newList) => localStorage
@@ -56,6 +40,7 @@ export const addNewUserToLocal = (newUser) => {
   }
 };
 
+// remoção de ação
 const removeStockFromLocal = (stock, user) => {
   const usersStored= getUsersFromLocal();
   const removeUser = usersStored.filter(userStore => userStore.id !== Number(user.id));
@@ -65,16 +50,16 @@ const removeStockFromLocal = (stock, user) => {
   setUserToLocal([...removeUser, userUpdated ]);
   addAcessUserToLocal(userUpdated);
   return;
-  // return { ...user, recordsStocks: newUpdate }
 };
 
+// atualização de ações
 const updateStockToLocal = (stock, user) => {
   const newUpdate = user.recordsStocks.filter(({ id }) => id !== Number(stock.id));
   return { ...user, recordsStocks: [...newUpdate, stock] }
 };
 
-export const setAccountInfoToLocal = (financialTransaction) => localStorage
-  .setItem('usersAccountInfo', JSON.stringify(financialTransaction));
+// export const setAccountInfoToLocal = (financialTransaction) => localStorage
+//   .setItem('usersAccountInfo', JSON.stringify(financialTransaction));
 
 export const updateDataUserLocalSt = (type, newUpdate, user) => {
   if (newUpdate) {
@@ -99,7 +84,7 @@ export const updateAccountLocalSt = (type, value, user) => {
   if (value) {
     const usersStored = getUsersFromLocal();
     const userFind = usersStored.find(({ id }) => id === Number(user.id));
-    const userUpdatedBalance = (type === 'compra'
+    const userUpdatedBalance = (type === 'compra' || type === 'Retirada'
       ? (Number(userFind.accountBalance) - Number(value))
       : (Number(userFind.accountBalance) + Number(value)));
     const userUpdated = { ...userFind, accountBalance: userUpdatedBalance };
@@ -108,3 +93,57 @@ export const updateAccountLocalSt = (type, value, user) => {
     addAcessUserToLocal(userUpdated);
   }
 };
+
+export const addDepositWithdtoLocal = (newUpdate, userId) => {
+  if (newUpdate) {
+    const usersStored = getUsersFromLocal();
+    const user = usersStored.find(({ id }) => id === Number(user.id));
+    const transation = { 
+      id: generateId(),
+      type: newUpdate.transation,
+      donedAt: new Date(),
+      value: newUpdate.value };
+    const userUpdated = { ...user, financialTransactions: [...user.financialTransactions, transation] };
+    const removeUser = usersStored.filter(userStore => userStore.id !== Number(userId));
+    setUserToLocal([...removeUser, userUpdated ]);
+    addAcessUserToLocal(userUpdated);
+    updateAccountLocalSt('Depósito', newUpdate.value, { id: userId });
+  }
+};
+
+// export const updateAccountLocalSt = (type, value, user) => {
+//   if (value) {
+//     const usersStored = getUsersFromLocal();
+//     const userFind = usersStored.find(({ id }) => id === Number(user.id));
+//     const userUpdatedBalance = (type === 'compra'
+//       ? (Number(userFind.accountBalance) - Number(value))
+//       : (Number(userFind.accountBalance) + Number(value)));
+//     const userUpdated = { ...userFind, accountBalance: userUpdatedBalance };
+//     const removeUser = usersStored.filter(userStore => userStore.id !== Number(user.id));
+//     setUserToLocal([...removeUser, userUpdated ]);
+//     addAcessUserToLocal(userUpdated);
+//   }
+// };
+// export const getUsersFromLocal = () => JSON
+//   .parse(localStorage.getItem('finantialTransations'));
+// export const setUserToLocal = (newList) => localStorage
+//   .setItem('finantialTransations', JSON.stringify(newList));
+
+// export const addNewTransationToLocal = (newTransation) => {
+//   if (!JSON.parse(localStorage.getItem('finantialTransations'))) {
+//     localStorage.setItem('finantialTransations', JSON
+//       .stringify([]));
+//   }
+//   if (newTransation) {
+//     const usersStored = getUsersFromLocal();
+//     const initializeInfos = { 
+//       id: newTransation.id,
+//       name: newTransation.inputName,
+//       email: newTransation.inputEmail,
+//       createdAt: new Date(),
+//       accountBalance: newTransation.inputValueInitial,
+//       recordsStocks:[], financialTransactions: [] };
+//     setUserToLocal([...usersStored, initializeInfos]);
+//     addAcessUserToLocal(initializeInfos);
+//   }
+// };

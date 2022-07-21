@@ -53,12 +53,6 @@ const AvailableStocks = () => {
                   >
                       C
                   </button>
-                  {/* <button
-                      type="button"
-                      // onClick={ }
-                  >
-                      V
-                  </button> */}
                   </td>
               </tr>
               ))}

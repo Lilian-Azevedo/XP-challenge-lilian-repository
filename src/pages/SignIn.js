@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { addNewUserToLocal } from '../services/localStorage';
+import { generateId } from '../services/functions';
+import { addDepositWithdtoLocal, addNewUserToLocal } from '../services/localStorage';
 import verifyValidation from '../validations/validateEmail';
 
 const INITIAL_STATE = {
@@ -34,8 +35,11 @@ const SignIn = () => {
   }
 
   const handleClick = () => {
-    const generateId = Math.floor(Date.now() * Math.random());
-    addNewUserToLocal({ id: generateId, ...userData});
+    const userId = generateId();
+    addNewUserToLocal({ id: userId, ...userData});
+    if (inputValueInitial) {
+      addDepositWithdtoLocal({ type: 'Depósito', value: inputValueInitial}, userId);
+    }
     history.push('/wallet');
   }
 

@@ -8,7 +8,7 @@ const Home = () => {
   const history = useHistory();
 
   return (
-    <div className="details-page">
+    <div className="home-page">
       <div>
         <h1 className='main-title'>XP Actioners</h1>
       </div>

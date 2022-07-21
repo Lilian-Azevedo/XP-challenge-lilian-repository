@@ -30,7 +30,7 @@ const UserStocks = () => {
           <h4>Valor</h4>
           <h4>Negociar</h4>
         </div>
-        { recordsUser.length < 2
+        { recordsUser.length <= 2
         ? <div>
           {recordsUser.map((item, index) => (
             <div key={ index }>

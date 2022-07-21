@@ -5,6 +5,8 @@ import renderWithRouterAndStore from '../renderWithRouterAndStore';
 import App from '../App';
 
 let globalHistory = '';
+const PASSWORD_FAKE = 'password';
+const EMAIL_FAKE = 'newUser1@test.com';
 
 beforeEach(() => {
     const { history } = renderWithRouterAndStore(<App />);
@@ -27,16 +29,32 @@ describe('Teste a página de Login', () => {
     const inputPassword = screen.getByTestId('senha-input');
     expect(inputPassword).toBeTruthy();
   });
-//   test('3 - Teste se a página contém um botão de login que redireciona para a página de login', () => {
-//     const { history } = renderWithRouterAndStore(<App />);
-//     const buttonLogin = screen.getByRole('button', { name: 'Faça Login' });
-//     expect(buttonLogin).toBeTruthy();
+  test('4 - Teste se a página contém um botão de voltar que redireciona para a página inicial', () => {
+    const buttonHome = screen.getByRole('button', { name: 'Voltar' });
+    expect(buttonHome).toBeTruthy();
+    userEvent.click(buttonHome);
+    expect(globalHistory.location.pathname).toBe('/');
+  });
+  test('5 - Teste se a página contém um botão de Entrar que está desabilitado', () => {
+    const buttonEnter = screen.getByRole('button', { name: 'Entrar' });
+    expect(buttonEnter).toBeTruthy();
+    userEvent.click(buttonEnter);
+    expect(globalHistory.location.pathname).toBe('/login');
+  });
+  test(`5 - Teste se, ao digitar as informações de user não criado,
+    o botão desabilita e redireciona para /not-found`, () => {
+    const buttonEnter = screen.getByRole('button', { name: 'Entrar' });
+    const inputEmail = screen.getByRole('textbox', { name: 'Email' });
+    const inputPassword = screen.getByTestId('senha-input');
 
-//     userEvent.click(buttonLogin);
-//     expect(history.location.pathname).toBe('/login');
-//   });
+    userEvent.type(inputEmail, EMAIL_FAKE);
+    userEvent.type(inputPassword, PASSWORD_FAKE);
+    userEvent.click(buttonEnter);
+
+    expect(globalHistory.location.pathname).toBe('/not-found');
+  });
 //   test('4 - Teste se a página contém um botão de criar user que redireciona para a página /create', () => {
-//     const { history } = renderWithRouterAndStore(<App />);
+//
 //     const buttonCreate = screen.getByRole('button', { name: 'Crie uma conta' });
 //     expect(buttonCreate).toBeTruthy();
 

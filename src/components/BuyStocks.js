@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import usePath from '../hooks/usePath';
 import mockListStocks from '../mocks/mockListStocks';
-import { recordStock } from '../redux/actions';
+import { recordStock, saveAccountBalance } from '../redux/actions';
 import { getLastUserAcessFromLocal, updateAccountLocalSt, updateDataUserLocalSt } from '../services/localStorage';
 import AccountBalance from './AccountBalance';
 import BodyInfoStock from './BodyInfoStock';;
@@ -35,6 +35,7 @@ const BuyStocks = () => {
         : mockListStocks.find(({ id }) => id === Number(idPath)); // use mock
       setData([results]);
       dispatch(recordStock(results));
+      dispatch(saveAccountBalance(user.accountBalance ? user.accountBalance : 0));
     };
     getDataAPI();
     if (sellStocks) {

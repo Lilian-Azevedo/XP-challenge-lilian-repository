@@ -21,12 +21,10 @@ const WithdrawalDeposit = () => {
     let newAccountBalance = 0;
     if (operationType === 'Depósito') {
       addDepositWithdtoLocal({ type: 'Depósito', value: inputValue}, id);
-      console.log('depo');
       newAccountBalance = accountBalance + Number(inputValue);
       updateAccountLocalSt('Depósito', inputValue, { id });
     } else {
       addDepositWithdtoLocal({ type: 'Retirada', value: inputValue}, id);
-      console.log('ret');
       updateAccountLocalSt('Retirada', inputValue, { id });
       newAccountBalance = accountBalance - Number(inputValue);
     }

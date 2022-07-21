@@ -60,9 +60,6 @@ const updateStockToLocal = (stock, user) => {
   return { ...user, recordsStocks: [...newUpdate, stock] }
 };
 
-// export const setAccountInfoToLocal = (financialTransaction) => localStorage
-//   .setItem('usersAccountInfo', JSON.stringify(financialTransaction));
-
 export const updateDataUserLocalSt = (type, newUpdate, user) => {
   if (newUpdate) {
     if (newUpdate.qtdPurchased === 0) {
@@ -109,6 +106,5 @@ export const addDepositWithdtoLocal = (newUpdate, userId) => {
     const removeUser = usersStored.filter(userStore => userStore.id !== Number(userId));
     setUserToLocal([...removeUser, userUpdated ]);
     addAcessUserToLocal(userUpdated);
-    // updateAccountLocalSt(newUpdate.transation, newUpdate.value, { id: userId });
   }
 };

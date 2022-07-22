@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import profilePicture from '../images/profileIcon.svg';
 import { getLastUserAcessFromLocal } from '../services/localStorage';
 import '../styles/header.css';
+import NavBar from './NavBar';
 
 const Header = () => {
   const history = useHistory();
@@ -20,17 +21,23 @@ const Header = () => {
   }
 
   return (
-    <div className="header">
-      <span>{ getLastUser() }</span>
-      <input
-      className='filter-svg'
-        name="profile-btn"
-        type="image"
-        onClick={ handleClick }
-        src={ profilePicture }
-        alt="profile"
-      />
-    </div>
+    <header className="header">
+      <div>
+        <NavBar />
+      </div>
+      <div>
+        <span>{ getLastUser() }</span>
+        <input
+        className='filter-svg'
+          name="profile-btn"
+          type="image"
+          onClick={ handleClick }
+          src={ profilePicture }
+          alt="profile"
+        />
+
+      </div>
+    </header>
   );
 };
 

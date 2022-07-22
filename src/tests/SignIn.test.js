@@ -7,6 +7,7 @@ import App from '../App';
 let globalHistory = '';
 const PASSWORD_FAKE = 'password';
 const EMAIL_FAKE = 'newUser1@test.com';
+const NAME_USER_FAKE = 'Fulano da Silva'
 
 beforeEach(() => {
     const { history } = renderWithRouterAndStore(<App />);
@@ -45,4 +46,22 @@ describe('Teste a página SignIn', () => {
     userEvent.click(buttonSave);
     expect(globalHistory.location.pathname).toBe('/create');
   });
+  test(`7 - Teste se, ao digitar as informações corretamente,
+    o botão desabilita e redireciona para /wallet`, () => {
+    const buttonSave = screen.getByRole('button', { name: 'Salvar' });
+    const inputName = screen.getByTestId('nome-input');
+    const inputEmail = screen.getByTestId('email-input');
+    const inputPassword = screen.getByTestId('senha-input');
+    const radioButtonYes = screen.getByText(/sim/i);
+    const inputValue = screen.getByRole('spinbutton');
+    
+    userEvent.type(inputName, NAME_USER_FAKE);
+    userEvent.type(inputEmail, EMAIL_FAKE);
+    userEvent.type(inputPassword, PASSWORD_FAKE);
+    userEvent.click(radioButtonYes);
+    userEvent.type(inputValue, 12000);
+    userEvent.click(buttonSave);
+
+    expect(globalHistory.location.pathname).toBe('/wallet');
+  });// está falhando por conta do recordsStocks => verificar
 });

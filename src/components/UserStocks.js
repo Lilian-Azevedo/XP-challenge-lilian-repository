@@ -16,7 +16,7 @@ const UserStocks = () => {
   }, []);
 
   return (
-    <div>
+    <div className='user-actions'>
       <div>
         <h2>Minhas Ações</h2>
       </div>

@@ -1,0 +1,15 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+.user-actions {
+    margin-top: 20px;
+}
+
+.actions{ 
+    margin-top: 50px;
+}

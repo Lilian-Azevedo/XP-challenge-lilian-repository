@@ -91,10 +91,10 @@ const SignIn = () => {
           <span>Deseja adicionar algum valor agora?</span>
           <div className="container-radio-button" onChange={ onChangeAddValue }>
             <label htmlFor='yes'>
-              <input type="radio" value="yes" name="addValue" />Sim
+              <input type="radio" value="yes" name="addValue" id='yes' />Sim
             </label>
             <label htmlFor='no'>
-              <input type="radio" value="no" name="addValue" />Não
+              <input type="radio" value="no" name="addValue" id='no'/>Não
             </label>
           </div>
         </section>

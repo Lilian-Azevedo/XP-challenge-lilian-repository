@@ -1,12 +1,17 @@
 .header {
     display: flex;
-    flex-direction: row;
     justify-content: flex-end;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
     padding: 10px;
-    /* position: fixed; */
-    /* top: 0; */
-    /* right: 0; */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    background-color: var(--first-color-alt);
+}
+
+.header > div {
+    display: flex;
 }
 
 .header span {

@@ -41,7 +41,7 @@ describe('Teste a página de Login', () => {
     userEvent.click(buttonEnter);
     expect(globalHistory.location.pathname).toBe('/login');
   });
-  test(`5 - Teste se, ao digitar as informações de user não criado,
+  test(`6 - Teste se, ao digitar as informações de user não criado,
     o botão desabilita e redireciona para /not-found`, () => {
     const buttonEnter = screen.getByRole('button', { name: 'Entrar' });
     const inputEmail = screen.getByRole('textbox', { name: 'Email' });
@@ -53,7 +53,7 @@ describe('Teste a página de Login', () => {
 
     expect(globalHistory.location.pathname).toBe('/not-found');
   });
-  test(`6 - Teste se, ao digitar as informações de user criado,
+  test(`7 - Teste se, ao digitar as informações de user criado,
   o botão desabilita e redireciona para /wallet`, () => {
   const buttonEnter = screen.getByRole('button', { name: 'Entrar' });
   const inputEmail = screen.getByRole('textbox', { name: 'Email' });

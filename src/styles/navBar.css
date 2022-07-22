@@ -1,9 +1,9 @@
 @media screen and (max-width: 767px) {
     .nav_menu {
         position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
+        top: 0;
+        right: 0;
+        /* width: 100%; */
         background-color:var(--body-color-alt);
         padding: 2rem 1.5rem 4rem;
         box-shadow: 0 -1px 4px rgba(0, 0, 0, .15);
@@ -57,8 +57,8 @@
 
 .nav_close, .nav_btns  {
     position: absolute;
-    right: 1.3rem;
-    bottom: .5rem;
+    left: 3rem;
+    top: .5rem;
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--first-color);
@@ -68,4 +68,32 @@
 .nav_close:hover {
     color: var(--first-color-alt);
 }
-  
+
+
+.nav_logo, .nav_toggle {
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+}
+
+.nav_logo:hover,
+.nav_toggle:hover {
+    color: var(--first-color);
+}
+
+.nav_toggle {
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.nav_close  {
+    position: absolute;
+    left: 1.3rem;
+    top: .5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--first-color);
+}
+
+.nav_close:hover {
+    color: var(--first-color-alt);
+}

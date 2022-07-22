@@ -7,7 +7,7 @@ const NavBar = () => {
     const [showed, setShowed] = useState(false);
 
     return (
-      <nav className="nav container footer_app">
+      <nav className="nav container">
         { showed
         ?(<div className="nav_menu" id="nav-menu">
           <ul className="nav_list grid">
@@ -39,10 +39,16 @@ const NavBar = () => {
               </Link>
               Sair
             </li>
+
+            <li className="nav_item"></li>
+
+            <li onClick={() => setShowed(false)} className="nav_item" >
+              <Unicons.UilMultiply  size="30" color="#E4B600" />
+            </li>
           </ul>
-          <div onClick={() => setShowed(false)} className='nav_close'>
+          {/* <div onClick={() => setShowed(false)} className='nav_close'>
             <Unicons.UilMultiply  size="30" color="#E4B600" />
-          </div>
+          </div> */}
         </div>)
         :(<div className="nav_btns nav_toggle" onClick={() => setShowed(true)}>
           <Unicons.UilApps size="30" color="#E4B600" />

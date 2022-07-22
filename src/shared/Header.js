@@ -22,13 +22,11 @@ const Header = () => {
 
   return (
     <header className="header">
-      <div>
-        <NavBar />
-      </div>
+      <NavBar />
       <div>
         <span>{ getLastUser() }</span>
         <input
-        className='filter-svg'
+          className='filter-svg'
           name="profile-btn"
           type="image"
           onClick={ handleClick }

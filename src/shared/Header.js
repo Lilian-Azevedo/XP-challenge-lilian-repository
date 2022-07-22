@@ -1,16 +1,16 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import profilePicture from '../images/profileIcon.svg';
 import { getLastUserAcessFromLocal } from '../services/localStorage';
 import '../styles/header.css';
 import NavBar from './NavBar';
 
 const Header = () => {
-  const history = useHistory();
+  // const history = useHistory();
 
-  const handleClick = () => {
-    history.push('/profile');
-  };
+  // const handleClick = () => {
+  //   history.push('/profile');
+  // };
 
   const getLastUser = () => {
     const user = getLastUserAcessFromLocal();
@@ -29,7 +29,7 @@ const Header = () => {
           className='filter-svg'
           name="profile-btn"
           type="image"
-          onClick={ handleClick }
+          // onClick={ handleClick }
           src={ profilePicture }
           alt="profile"
         />

@@ -38,12 +38,13 @@ afterEach(() => localStorage.clear());
   
 
 describe('Teste a página SignIn', () => {
-//   test('1 - Teste se a página contém um header', async () => {
-//     const headerArea = await screen.findByTestId('user-name');
-//     expect(headerArea).toBeTruthy();
-//   });
-  test('1 - Teste se a página contém um header onde aparece o nome do usuário', () => {
+  test('1 - Teste se a página contém um header onde aparece o nome da pessoa', () => {
     const headerArea = screen.getByTestId('user-name');
     expect(headerArea).toBeTruthy();
+  });
+  test('2 - Teste se a página contém uma imagem de user', () => {
+    renderWithRouterAndStore(<App />);
+    const imgUser = screen.getByRole('button', { name: /profile/i });
+    expect(imgUser).toBeTruthy();
   });
 });

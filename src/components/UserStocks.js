@@ -12,7 +12,6 @@ const UserStocks = () => {
 
   useEffect(() => {
     const user = getLastUserAcessFromLocal();
-    console.log(user);
     if (user) {
       setRecordsUser(user.recordsStocks);
     }
@@ -21,24 +20,22 @@ const UserStocks = () => {
   return (
     <div className='user-actions'>
       <div>
-        <h2>Minhas Ações</h2>
+        <h1 className='h1-title'>Minhas Ações</h1>
       </div>
 
       { !recordsUser.length
       ? <h3>Parece que sua carteira de ações está vazia</h3>
       :(<section className='container-stocks-user'>
-        <div>
+        <div className='container-header-stocks'>
           <h4>Ação</h4>
           <h4>Quantidade</h4>
-          <h4>Valor</h4>
+          <h4>Valor(R$)</h4>
           <h4>Negociar</h4>
         </div>
         { recordsUser.length <= 2
-        ? <div>
-          {recordsUser.map((item, index) => (
-            <div key={ index }>
-              <Card {...item}/>
-            </div>))
+        ? <div className='stocks-user-l2'>
+          { recordsUser.map((item, index) => (
+            <Card  key={ index } {...item}/>))
           }
         </div>
         :(<Swiper

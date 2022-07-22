@@ -16,15 +16,15 @@ const Card = (infoStock) => {
   }
 
   return (
-    <div class="card_data">
-        <h3 class="card_title">{ cd_acao }</h3>
-        <p class="card_description">{ qtdPurchased }</p>
-        <p class="card_description">{ convertValue((Number(vl_fechamento) * Number(qtdPurchased))) }</p>
+    <div className="card_data">
+        <h3 className="card_title">{ cd_acao }</h3>
+        <p className="card_description">{ qtdPurchased }</p>
+        <p className="card_description">{ convertValue((Number(vl_fechamento) * Number(qtdPurchased))) }</p>
         <div>
-          <button class="button button--flex" onClick={() => saveStock(`/buy/${id}`)}>
+          <button className="button--small" onClick={() => saveStock(`/buy/${id}`)}>
             C
           </button>
-          <button class="button button--flex" onClick={() => saveStock(`/sell/${id}`)}>
+          <button className="button--small" onClick={() => saveStock(`/sell/${id}`)}>
             V
           </button>
         </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import mockListStocks from '../mocks/mockListStocks';
 
-const listHead = ['Ação', 'Quantidade', 'Valor', 'Negociar'];
+const listHead = ['Ação', 'Quantidade', 'Valor(R$)', 'Negociar'];
 
 const AvailableStocks = () => {
   const history = useHistory();
@@ -30,28 +30,29 @@ const AvailableStocks = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Available</h1>
+    <div className='available-stocks'>
+      <h1 className='h1-title'>Ações disponíveis</h1>
       <div>
         <table>
           <thead>
-          <tr>
+          <tr className='container-list-thead'>
             {listHead.map(item => (<th key={ item }>{ item }</th>))}
           </tr>
           </thead>
           <tbody>
           {data.map(({ id, cd_acao, vl_fechamento }, index) => (
-              <tr key={ index }>
-                  <td>{ cd_acao }</td>
+              <tr className='container-list-tbody' key={ index }>
+                  <td className='name-action' >{ cd_acao }</td>
                   <td>1</td>
                   <td>{ vl_fechamento }</td>
                   <td>
                   <button
+                    className='button--small'
                     id={ id }
                     type="button"
                     onClick={ handleClick }
                   >
-                      C
+                    Comprar
                   </button>
                   </td>
               </tr>

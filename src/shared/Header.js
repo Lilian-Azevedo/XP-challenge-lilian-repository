@@ -24,7 +24,7 @@ const Header = () => {
     <header className="header">
       <NavBar />
       <div>
-        <span>{ getLastUser() }</span>
+        <span data-testid="user-name">{ getLastUser() }</span>
         <input
           className='filter-svg'
           name="profile-btn"

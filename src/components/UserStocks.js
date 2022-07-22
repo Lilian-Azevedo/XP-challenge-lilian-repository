@@ -12,7 +12,10 @@ const UserStocks = () => {
 
   useEffect(() => {
     const user = getLastUserAcessFromLocal();
-    setRecordsUser(user.recordsStocks);
+    console.log(user);
+    if (user) {
+      setRecordsUser(user.recordsStocks);
+    }
   }, []);
 
   return (

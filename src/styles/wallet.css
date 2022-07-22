@@ -1,13 +1,17 @@
-.wallet-page {
+/* .wallet-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100vw;
-}
+} */
 
 .actions{ 
     margin-top: 80px;
+}
+
+.user-actions {
+    margin-bottom: var(--mb-1-5);
 }
 
 .container-stocks-user {
@@ -16,9 +20,15 @@
     align-items: center;
 }
 
+.available-stocks > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .container-header-stocks h4 {
-  margin-bottom: var(--mb-0-5);
-  border-bottom: 1px solid var(--text-color);
+    margin-bottom: var(--mb-0-5);
+    border-bottom: 1px solid var(--text-color);
 }
 
 .stocks-user-l2 {
@@ -40,14 +50,17 @@
     background-color: rgb(38, 102, 38);
 }
 
-.available-stocks {
-    padding: 5px 10px;
-}
-
 .container-list-tbody {
     text-align: center;
 }
 
 .name-action {
+    text-align: justify;
+}
+
+.list-thead {
+    border: 1px solid var(--first-color);
+    border-top: none;
+    border-left: none;
     text-align: justify;
 }

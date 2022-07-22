@@ -35,8 +35,8 @@ const AvailableStocks = () => {
       <div>
         <table>
           <thead>
-          <tr className='container-list-thead'>
-            {listHead.map(item => (<th key={ item }>{ item }</th>))}
+          <tr>
+            {listHead.map(item => (<th className='list-thead' key={ item }>{ item }</th>))}
           </tr>
           </thead>
           <tbody>

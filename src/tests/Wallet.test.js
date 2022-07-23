@@ -45,7 +45,7 @@ beforeEach(() => {
 afterEach(() => localStorage.clear());
   
 
-describe('Teste a página SignIn', () => {
+describe('Teste a página Wallet', () => {
   test('1 - Teste se a página contém um header onde aparece o nome da pessoa', () => {
     const headerArea = screen.getByTestId('user-name');
     expect(headerArea).toBeTruthy();

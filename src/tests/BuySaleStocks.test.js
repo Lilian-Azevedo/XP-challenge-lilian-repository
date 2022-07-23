@@ -34,7 +34,7 @@ beforeEach(() => {
 afterEach(() => localStorage.clear());
   
 
-describe('Teste a página SignIn', () => {
+describe('Teste a página BuySale', () => {
   test('1 - Teste se a página contém um header onde aparece o nome da pessoa', () => {
     const headerArea = screen.getByTestId('user-name');
     expect(headerArea).toBeTruthy();
@@ -45,22 +45,23 @@ describe('Teste a página SignIn', () => {
     expect(imgUser).toBeTruthy();
   });
 
-  test('3 - Teste se a página contém dois campos: minhas ações e disponível', () => {
-    const myStocksTitle = screen.getByRole('heading', { name: /minhas ações/i, level: 1 });
-    const availabStocksTitle = screen.getByRole('heading', { name: /ações disponíveis/i, level: 1 });
-    expect(myStocksTitle && availabStocksTitle).toBeTruthy();
+  test('3 - Teste se a página contém o title Comprar ação', () => {
+    const buyStockTitle = screen.getByRole('heading', { name: /comprar ação/i, level: 1 });
+    expect(buyStockTitle).toBeTruthy();
   });
 
-  test('4 - Teste se a página contém texto com a frase de que está vazia', () => {
-    const textEmptyWallet = screen.getByRole('heading', { name: /Parece que sua carteira de ações está vazia/i,  level: 3 });
-    expect(textEmptyWallet).toBeTruthy();
+  test('4 - Teste se a página contém uma tabela com o head: ação, quantidade e valor unitário', () => {
+    const headTableStock = screen.getByRole('columnheader', { name: /ação/i });
+    const headTableQtt = screen.getByRole('columnheader', { name: /quantidade/i });
+    const headTableValue = screen.getByRole('columnheader', { name: /valor/i });
+    expect(headTableStock && headTableQtt && headTableValue).toBeTruthy();
   });
   test('5 - Teste se a página contém uma lista com ações disponíveis para compra', () => {
     renderWithRouterAndStore(<App />);
 
-    const stockFind1 = screen.getByRole('row', { name: /vale3 1 54\.33 comprar/i });
-    const stockFind2 = screen.getByRole('row', { name: /radl3 1 114\.83 comprar/i });
-    const stockFind3 = screen.getByRole('row', { name: /pepb34 1 547\.15 comprar/i });
-    expect(stockFind1 && stockFind2 && stockFind3).toBeTruthy();
+    const stockName = screen.getByRole('cell', { name: /vale3/i });
+    const stockQTT = screen.getByRole('cell', { name: /1/i });
+    const stockUnitValue = screen.getByRole('cell', { name: /r\$ 54,33/i });
+    expect(stockName && stockQTT && stockUnitValue).toBeTruthy();
   });
 });

@@ -46,3 +46,9 @@
     display: inline-flex;
     align-items: center;
 }
+
+/* Page not found */
+.container-not-found {
+    margin-bottom: var(--mb-2);
+    text-align: center;
+}

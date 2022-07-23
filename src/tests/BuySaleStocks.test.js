@@ -51,17 +51,29 @@ describe('Teste a página BuySale', () => {
   });
 
   test('4 - Teste se a página contém uma tabela com o head: ação, quantidade e valor unitário', () => {
+    renderWithRouterAndStore(<App />);
     const headTableStock = screen.getByRole('columnheader', { name: /ação/i });
     const headTableQtt = screen.getByRole('columnheader', { name: /quantidade/i });
     const headTableValue = screen.getByRole('columnheader', { name: /valor/i });
     expect(headTableStock && headTableQtt && headTableValue).toBeTruthy();
   });
-  test('5 - Teste se a página contém uma lista com ações disponíveis para compra', () => {
+  test('5 - Teste se a página contém uma ação disponível para compra', () => {
     renderWithRouterAndStore(<App />);
 
     const stockName = screen.getByRole('cell', { name: /vale3/i });
     const stockQTT = screen.getByRole('cell', { name: /1/i });
     const stockUnitValue = screen.getByRole('cell', { name: /r\$ 54,33/i });
     expect(stockName && stockQTT && stockUnitValue).toBeTruthy();
+  });
+  test('6 - Teste se a página contém input para adicionar quantidade de ações', () => {
+    const inputValue= screen.getByRole('textbox');
+    expect(inputValue).toBeTruthy();
+  });
+  test.only(`7 - Teste se a página contém um campo que mostra o total da compra e ao digitar um valor, ele é alterado também`, () => {
+    const inputValue= screen.getByRole('textbox');
+    userEvent.type(inputValue, 200);
+
+    const totalValueBought= screen.getByTestId('totalValue');
+    expect(totalValueBought).toBeTruthy();
   });
 });

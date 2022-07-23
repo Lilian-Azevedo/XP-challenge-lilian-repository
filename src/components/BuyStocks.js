@@ -28,6 +28,9 @@ const BuyStocks = () => {
   useEffect(() => {
     const user = getLastUserAcessFromLocal();
     setUser(user);
+    if (user) {
+      dispatch(saveAccountBalance(user.accountBalance ? user.accountBalance : 0));
+    }
     const getDataAPI = async () => {
       // const response = await fetch(endpoint);
       // const results = await response.json();
@@ -36,7 +39,6 @@ const BuyStocks = () => {
         : mockListStocks.find(({ id }) => id === Number(idPath)); // use mock
       setData([results]);
       dispatch(recordStock(results));
-      dispatch(saveAccountBalance(user.accountBalance ? user.accountBalance : 0));
     };
     getDataAPI();
     if (sellStocks) {
@@ -108,7 +110,7 @@ const BuyStocks = () => {
       {/* ARÉA DO VALOR TOTAL DA COMPRA/VENDA */}
       <div className='container-total-value'>
         <h2>Total da { labelBuyOrSell }:</h2>
-        <span>{ totalValue.convertedValue }</span>
+        <span data-testid='totalValue'>{ totalValue.convertedValue }</span>
       </div>
       {/* BOTÕES DE VOLTAR E COMPRAR/VENDER */}
       <div className='section-btns btns-buy-sell'>

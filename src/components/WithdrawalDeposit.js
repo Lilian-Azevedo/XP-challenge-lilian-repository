@@ -9,7 +9,7 @@ const WithdrawalDeposit = () => {
   const history = useHistory();
   const [inputValue, setInputValue] = useState('');
   const [user, setUser] = useState();
-  const [operationType, setOperationType] = useState('');
+  const [operationType, setOperationType] = useState('Depósito');
   const dispatch = useDispatch();
 
   const handleInput = ({ target: { value } }) => {

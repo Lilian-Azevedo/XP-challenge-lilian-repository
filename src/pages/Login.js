@@ -17,26 +17,20 @@ const Login = () => {
   const history = useHistory();
   const [userData, setUserData] = useState(INITIAL_STATE);
   const [lastUser, setLastUser] = useState('');
-  const [disableButton, setDisableButton] = useState(true);
 
   useEffect(() => {
     const user = getLastUserAcessFromLocal();
     setLastUser(user);
   }, []);
-
-  useEffect(() => {
-    if(verifyValidation(userData)) {
-      setDisableButton(false);
-      return;
-    }
-    setDisableButton(true);
-  }, [userData]);
   
   const handleInput = ({ target: { name, value } }) => {
     setUserData(prev => ({...prev, [name]: value }));
   }
 
   const handleClick = () => {
+    if(!verifyValidation(userData)) {
+      return alert('Você precisa informar dados válidos!');
+    }
     const { inputEmail } = userData;
     dispatch(saveUser(inputEmail));
     const findUser = verifyExistence(inputEmail);
@@ -100,7 +94,6 @@ const Login = () => {
             type="button"
             className='button-general button--flex'
             onClick={ handleClick }
-            disabled={ disableButton }
         >
         Entrar
         </button>

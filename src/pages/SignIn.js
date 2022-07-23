@@ -16,15 +16,6 @@ const SignIn = () => {
   const [userData, setUserData] = useState(INITIAL_STATE);
   const [disableInput, setDisableInput] = useState(true);
   const history = useHistory();
-  const [disableButton, setDisableButton] = useState(true);
-
-  useEffect(() => {
-    if(verifyValidation(userData)) {
-      setDisableButton(false);
-      return;
-    }
-    setDisableButton(true);
-  }, [userData]);
 
   const handleInput = ({ target: { name, value } }) => {
     setUserData(prev => ({...prev, [name]: value }));
@@ -36,6 +27,9 @@ const SignIn = () => {
   }
 
   const handleClick = () => {
+    if(!verifyValidation(userData)) {
+      return alert('Você precisa informar dados válidos!');
+    }
     const userId = generateId();
     addNewUserToLocal({ id: userId, ...userData});
     if (inputValueInitial) {
@@ -117,7 +111,7 @@ const SignIn = () => {
               type="button"
               className='button-general button--flex'
               onClick={ handleClick }
-              disabled={ disableButton }
+              // disabled={ disableButton }
           >
           Salvar
           </button>

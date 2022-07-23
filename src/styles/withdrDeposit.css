@@ -6,7 +6,11 @@
 }
 
 .area-buttons-withdrD {
-    display: block;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100vw;
+    margin-bottom: var(--mb-1-5);
 }
 
 .transaction-active {

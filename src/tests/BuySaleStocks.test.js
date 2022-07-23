@@ -71,9 +71,10 @@ describe('Teste a página BuySale', () => {
   });
   test.only(`7 - Teste se a página contém um campo que mostra o total da compra e ao digitar um valor, ele é alterado também`, () => {
     const inputValue= screen.getByRole('textbox');
-    userEvent.type(inputValue, 200);
-
+    userEvent.type(inputValue, '200');
+    
     const totalValueBought= screen.getByTestId('totalValue');
-    expect(totalValueBought).toBeTruthy();
+    const totalValue= screen.getByText('R$ 10.866,00');
+    expect(totalValueBought && totalValue).toBeTruthy();
   });
 });

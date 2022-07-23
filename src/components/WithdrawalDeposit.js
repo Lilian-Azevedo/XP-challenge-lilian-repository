@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { saveAccountBalance } from '../redux/actions';
 import { addDepositWithdtoLocal, getLastUserAcessFromLocal, updateAccountLocalSt } from '../services/localStorage';
-
+import '../styles/withdrDeposit.css';
 
 const WithdrawalDeposit = () => {
   const history = useHistory();
@@ -44,7 +44,7 @@ const WithdrawalDeposit = () => {
   }, []);
   
   return (
-    <div>
+    <div className='container-withdrawal'>
       {/* ARÉA DE INPUT DA QUANTIDADE DE AÇÕES*/}
       <section>
         <span>Digite o valor</span>
@@ -57,12 +57,16 @@ const WithdrawalDeposit = () => {
           placeholder="Informe o valor em reais"
         />
       </section>
-      <div>
+      {/* ARÉA DE ESCOLHA RETIRADA OU DEPOS*/}
+      <div className='area-buttons-withdrD'>
         <button
             type="button"
             onClick={ ({ target }) => setOperationType(target.value) }
             name="deposit"
             value="Depósito"
+            className={ operationType=== 'Depósito'
+              ? 'button-general button--flex transaction-active'
+              :  'button-general button--flex'}
         >
             Depósito
         </button>
@@ -71,24 +75,29 @@ const WithdrawalDeposit = () => {
             onClick={ ({ target }) => setOperationType(target.value) }
             name="withdrawal"
             value="Retirada"
+            className={ operationType=== 'Retirada'
+              ? 'button-general button--flex transaction-active'
+              :  'button-general button--flex'}
         >
             Retirada
         </button>
       </div>   
       {/* BOTÕES DE VOLTAR E CONFIRMAR */}
-      <div>
-        <button
-            type="button"
-            onClick={() => history.push('/wallet')}
-        >
-            Voltar
-        </button>
+      <div className='section-btns'>
         <button
             type="button"
             onClick={ handleClick }
             disabled={ (!operationType || !inputValue) ? true : false }
+            className='button-general button--flex'
         >
             Confirmar
+        </button>
+        <button
+            type="button"
+            onClick={() => history.push('/wallet')}
+            className='button-general button--flex'
+        >
+            Voltar
         </button>
       </div>
     </div>

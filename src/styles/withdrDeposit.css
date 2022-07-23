@@ -1,0 +1,15 @@
+.container-withdrawal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.area-buttons-withdrD {
+    display: block;
+}
+
+.transaction-active {
+    background-color: var(--first-color);
+    color: var(--body-color);
+}

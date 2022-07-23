@@ -65,7 +65,7 @@ const WithdrawalDeposit = () => {
             name="deposit"
             value="Depósito"
             className={ operationType=== 'Depósito'
-              ? 'button-general button--flex transaction-active'
+              ? 'button--flex transaction-active'
               :  'button-general button--flex'}
         >
             Depósito
@@ -76,7 +76,7 @@ const WithdrawalDeposit = () => {
             name="withdrawal"
             value="Retirada"
             className={ operationType=== 'Retirada'
-              ? 'button-general button--flex transaction-active'
+              ? 'button--flex transaction-active'
               :  'button-general button--flex'}
         >
             Retirada

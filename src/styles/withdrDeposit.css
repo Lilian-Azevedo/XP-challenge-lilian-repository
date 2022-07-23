@@ -10,6 +10,12 @@
 }
 
 .transaction-active {
-    background-color: var(--first-color);
+    background-color: var(--first-color-alt);
     color: var(--body-color);
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-medium);
+    cursor:pointer;
+    padding: 5px 20px 5px 20px;
+    border: 1px solid var(--first-color);
+    margin-bottom: var(--mb-0-5);
 }

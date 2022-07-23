@@ -6,10 +6,6 @@
     align-items: center;
 }
 
-.container-head-buy-sell {
-    text-align: center;
-}
-
 .container-head-buy-sell th {
     border: 1px solid var(--first-color);
     border-top: none;
@@ -17,6 +13,20 @@
     padding: 5px 10px;
 }
 
-.container-table {
+.container-account-balance {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--first-color-alt);
+    color: var(--body-color);
+    width: 100vw;
+    height: 40px;
+}
+
+.container-head-buy-sell {
+    text-align: center;
+}
+
+.container-table, .btns-buy-sell, .container-total-value  {
     margin-bottom: var(--mb-1-5);
 }

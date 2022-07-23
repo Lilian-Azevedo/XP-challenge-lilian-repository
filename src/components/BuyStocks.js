@@ -106,19 +106,12 @@ const BuyStocks = () => {
         />
       </section>
       {/* ARÉA DO VALOR TOTAL DA COMPRA/VENDA */}
-      <div>
+      <div className='container-total-value'>
         <h2>Total da { labelBuyOrSell }:</h2>
         <span>{ totalValue.convertedValue }</span>
       </div>
       {/* BOTÕES DE VOLTAR E COMPRAR/VENDER */}
-      <div>
-        <button
-            type="button"
-            onClick={() => history.push('/wallet')}
-            className='button-general button--flex'
-        >
-            Voltar
-        </button>
+      <div className='section-btns btns-buy-sell'>
         <button
             type="button"
             onClick={ handleClick }
@@ -126,6 +119,13 @@ const BuyStocks = () => {
             className='button-general button--flex'
         >
             { titleAction }
+        </button>
+        <button
+            type="button"
+            onClick={() => history.push('/wallet')}
+            className='button-general button--flex'
+        >
+            Voltar
         </button>
       </div>
       {/* ARÉA DO SALDO DISPONÍVEL */}

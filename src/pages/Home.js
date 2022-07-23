@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <div className="home-page">
       <div>
-        <h1 className='main-title'>XP Actioners</h1>
+        <h1 className='main-title'>ActionXPerts</h1>
       </div>
       <div>
         <input

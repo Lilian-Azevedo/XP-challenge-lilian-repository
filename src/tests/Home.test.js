@@ -7,7 +7,7 @@ import App from '../App';
 describe('Teste a página de Home', () => {
   test('1 - Teste se a página contém um title', () => {
     renderWithRouterAndStore(<App />);
-    const homeTitle = screen.getByRole('heading', { name: 'XP Actioners', level: 1 });
+    const homeTitle = screen.getByRole('heading', { name: /ActionXPerts/i, level: 1 });
     expect(homeTitle).toBeTruthy();
   });
   test('2 - Teste se a página contém uma imagem em forma de input', () => {

@@ -29,9 +29,8 @@ const BuyStocks = () => {
   useEffect(() => {
     const user = getLastUserAcessFromLocal();
     setUser(user);
-    if (user) {
-      dispatch(saveAccountBalance(user.accountBalance ? user.accountBalance : 0));
-    }
+    if (user) dispatch(saveAccountBalance(user.accountBalance ? user.accountBalance : 0));
+    
     const getDataAPI = async () => {
       // const response = await fetch(endpoint);
       // const results = await response.json();

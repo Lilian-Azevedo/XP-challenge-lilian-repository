@@ -1,0 +1,22 @@
+.container-buy-sell {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-head-buy-sell {
+    text-align: center;
+}
+
+.container-head-buy-sell th {
+    border: 1px solid var(--first-color);
+    border-top: none;
+    border-left: none;
+    padding: 5px 10px;
+}
+
+.container-table {
+    margin-bottom: var(--mb-1-5);
+}

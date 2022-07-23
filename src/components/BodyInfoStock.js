@@ -21,7 +21,7 @@ const BodyInfoStock = () => {
       { sellStocks 
         ? data
           .map(({ id, cd_acao, vl_fechamento, qtdPurchased }) => (
-          <tr key={ id }>
+          <tr key={ id } className='container-head-buy-sell'>
               <td>{ cd_acao }</td>
               <td>{ qtdPurchased }</td>
               <td>{ convertValue((Number(vl_fechamento) * Number(qtdPurchased))) }</td>
@@ -29,7 +29,7 @@ const BodyInfoStock = () => {
           ))
         : data
         .map(({ id, cd_acao, vl_fechamento }) => (
-        <tr key={ id }>
+        <tr className='container-head-buy-sell' key={ id }>
             <td>{ cd_acao }</td>
             <td>1</td>
             <td>{ convertValue(vl_fechamento)}

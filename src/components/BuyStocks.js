@@ -6,7 +6,8 @@ import mockListStocks from '../mocks/mockListStocks';
 import { recordStock, saveAccountBalance } from '../redux/actions';
 import { getLastUserAcessFromLocal, updateAccountLocalSt, updateDataUserLocalSt } from '../services/localStorage';
 import AccountBalance from './AccountBalance';
-import BodyInfoStock from './BodyInfoStock';;
+import BodyInfoStock from './BodyInfoStock';
+import '../styles/buySell.css';
 
 const listHead = ['Ação', 'Quantidade', 'Valor'];
 
@@ -79,13 +80,13 @@ const BuyStocks = () => {
   }
 
   return (
-    <div>
-      <h1>{ titleAction } Ação</h1>
+    <div className='container-buy-sell'>
+      <h1 className='h1-title'>{ titleAction } Ação</h1>
       {/* ARÉA DE INFORMAÇÕES DA AÇÃO*/}
-      <section>
+      <section className='container-table'>
         <table>
           <thead>
-            <tr>
+            <tr className='container-head-buy-sell'>
             {listHead.map(item => (<th key={ item }>{ item }</th>))}
             </tr>
           </thead>
@@ -94,7 +95,7 @@ const BuyStocks = () => {
       </section>
       {/* ARÉA DE INPUT DA QUANTIDADE DE AÇÕES*/}
       <section>
-        <span>Quantidade</span>
+        {/* <span>Quantidade</span> */}
         <input
           type="text"
           onChange={ handleInput }
@@ -114,6 +115,7 @@ const BuyStocks = () => {
         <button
             type="button"
             onClick={() => history.push('/wallet')}
+            className='button-general button--flex'
         >
             Voltar
         </button>
@@ -121,6 +123,7 @@ const BuyStocks = () => {
             type="button"
             onClick={ handleClick }
             disabled={ !inputQuantity }
+            className='button-general button--flex'
         >
             { titleAction }
         </button>

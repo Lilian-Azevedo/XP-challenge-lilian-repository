@@ -12,8 +12,8 @@ const AccountBalance = () => {
   
 
   return (
-    <div>
-      <h3>Saldo Disponível:</h3>
+    <div className='container-account-balance'>
+      <h3>Saldo Disponível: </h3>
       <p>{ data }</p>
     </div>
   )

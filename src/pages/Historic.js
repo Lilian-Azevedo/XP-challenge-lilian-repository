@@ -1,7 +1,6 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import LastTransations from '../components/LastTransations';
-import walletPicture from '../images/wallet.png';
+import Header from '../shared/Header';
 import '../styles/header.css';
 
 const Historic = () => (

@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import WalletStocks from './pages/Wallet';
 import WithdrawDeposit from './pages/WithdrawDeposit';
 import NotFound from './pages/NotFound';
+import Historic from './pages/Historic';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path="/sell/:id"
         render={ (props) => (<BuySaleStocks { ...props } />) }/>
       <Route path="/account" component={ WithdrawDeposit } />
+      <Route path="/historic" component={ Historic } />
       <Route path="*" component={ NotFound } />
     </Switch>);
 }

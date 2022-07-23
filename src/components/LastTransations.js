@@ -5,7 +5,7 @@ const listHead = ['Data', 'Tipo', 'Valor'];
 
 const LastTransations = () => {
   return (
-    <div className='user-actions'>
+    <div className='actions'>
         <h1 className='h1-title'>Histórico de transações</h1>
         <table>
           <thead>

@@ -23,7 +23,8 @@ const NavBar = () => {
               <Link to="/account">
                 <Unicons.UilMoneyWithdraw size="30" color="#E4B600"/>
               </Link>
-              Conta
+              Depósito/
+              Retirada
             </li>
 
             <li className="nav_item" onClick={() => setShowed(false)}>

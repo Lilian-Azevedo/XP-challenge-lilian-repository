@@ -69,7 +69,7 @@ describe('Teste a página BuySale', () => {
     const inputValue= screen.getByRole('textbox');
     expect(inputValue).toBeTruthy();
   });
-  test.only(`7 - Teste se a página contém um campo que mostra o total da compra e ao digitar um valor, ele é alterado também`, () => {
+  test(`7 - Teste se a página contém um campo que mostra o total da compra e ao digitar um valor, ele é alterado também`, () => {
     const inputValue= screen.getByRole('textbox');
     userEvent.type(inputValue, '200');
     
@@ -77,4 +77,11 @@ describe('Teste a página BuySale', () => {
     const totalValue= screen.getByText('R$ 10.866,00');
     expect(totalValueBought && totalValue).toBeTruthy();
   });
+  test.only(`8 - Teste se a página contém um campo que mostra o saldo disponível na conta`, () => {
+    const accountBalance=  screen.getByRole('heading', { name: /saldo disponível:/i });
+    
+    const valueAccount= screen.getByRole('heading', { name: /r\$ 10\.000,00/i })
+    expect(accountBalance && valueAccount).toBeTruthy();
+  });
+
 });

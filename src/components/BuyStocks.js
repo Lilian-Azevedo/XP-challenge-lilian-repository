@@ -8,6 +8,7 @@ import { getLastUserAcessFromLocal, updateAccountLocalSt, updateDataUserLocalSt 
 import AccountBalance from './AccountBalance';
 import BodyInfoStock from './BodyInfoStock';
 import '../styles/buySell.css';
+import verifyAccountValue from '../validations/valdateAccountBalance';
 
 const listHead = ['Ação', 'Quantidade', 'Valor'];
 
@@ -55,26 +56,22 @@ const BuyStocks = () => {
   }
   
   const handleClick = () => {
+    const isOKBuySell = verifyAccountValue(data[0], inputQuantity, user, sellStocks, totalValue);
+    let purchaseUpdate = 0;
+    if (isOKBuySell) {
+      return alert('Você não pode realizar essa operação, verifique as informações!');
+    }
     if (sellStocks) {
-      if (Number(data[0].qtdPurchased) < Number(inputQuantity)) {
-        return alert('Você não possui ações suficientes para essa venda!');
-      }
-      const purchase = Number(data[0].qtdPurchased) - Number(inputQuantity);
-      updateDataUserLocalSt('recordsStocks', {...data[0], qtdPurchased: purchase}, user);
-      updateAccountLocalSt('venda', totalValue.total, user);
-      alert(`Você acaba de vender ${inputQuantity } ${Number(inputQuantity) === 1? 'ação' : 'ações'} dessa empresa`);
-      history.push('/wallet');
-      return;
+      purchaseUpdate = Number(data[0].qtdPurchased) - Number(inputQuantity);
+    } else {
+      purchaseUpdate = data[0].qtdPurchased ? Number(data[0].qtdPurchased) + Number(inputQuantity) : Number(inputQuantity);
+      // updateAccountLocalSt('compra', totalValue.total, user);
     }
-    if (user.accountBalance < totalValue.total) {
-      return alert('Você não possui saldo suficiente para essa compra!');
-    }
-    const purchase = data[0].qtdPurchased ? Number(data[0].qtdPurchased) + Number(inputQuantity) : Number(inputQuantity);
-    updateDataUserLocalSt('recordsStocks', {...data[0], qtdPurchased: purchase}, user);
-    updateAccountLocalSt('compra', totalValue.total, user);
-    alert(`Parabéns, você acaba de comprar 
-    ${inputQuantity } ${Number(inputQuantity) === 1? 'ação' : 'ações'} dessa empresa!`);
-    history.push('/wallet');
+
+    updateAccountLocalSt(labelBuyOrSell, totalValue.total, user);
+    updateDataUserLocalSt('recordsStocks', {...data[0], qtdPurchased: purchaseUpdate}, user);
+    alert(`Você acaba de ${titleAction} ${inputQuantity } ${Number(inputQuantity) === 1? 'ação' : 'ações'} dessa empresa!`);
+    return history.push('/wallet');
   }
 
   const handleEnterClick = (event) => {

@@ -24,7 +24,7 @@ const UserStocks = () => {
       </div>
 
       { !recordsUser.length
-      ? <h3>Parece que sua carteira de ações está vazia</h3>
+      ? <h3 className='h3-title'>Parece que sua carteira de ações está vazia!</h3>
       :(<section className='container-stocks-user'>
         <div className='container-header-stocks'>
           <h4>Ação</h4>

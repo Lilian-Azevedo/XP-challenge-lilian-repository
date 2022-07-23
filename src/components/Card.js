@@ -8,7 +8,6 @@ const Card = (infoStock) => {
   const history = useHistory();
 
   const saveStock = (path) => {
-
     return history.push(path);
   }
 

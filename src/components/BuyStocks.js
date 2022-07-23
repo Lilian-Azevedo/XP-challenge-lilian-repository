@@ -30,7 +30,7 @@ const BuyStocks = () => {
     const user = getLastUserAcessFromLocal();
     setUser(user);
     if (user) dispatch(saveAccountBalance(user.accountBalance ? user.accountBalance : 0));
-    
+
     const getDataAPI = async () => {
       // const response = await fetch(endpoint);
       // const results = await response.json();
@@ -63,12 +63,12 @@ const BuyStocks = () => {
     if (sellStocks) {
       purchaseUpdate = Number(data[0].qtdPurchased) - Number(inputQuantity);
     } else {
-      purchaseUpdate = data[0].qtdPurchased ? Number(data[0].qtdPurchased) + Number(inputQuantity) : Number(inputQuantity);
-      // updateAccountLocalSt('compra', totalValue.total, user);
+      const existRecord = user.recordsStocks.find(({ id }) => id === data[0].id);
+      purchaseUpdate = existRecord ? Number(existRecord.qtdPurchased) + Number(inputQuantity) : inputQuantity;
     }
 
     updateAccountLocalSt(labelBuyOrSell, totalValue.total, user);
-    updateDataUserLocalSt('recordsStocks', {...data[0], qtdPurchased: purchaseUpdate}, user);
+    updateDataUserLocalSt({...data[0], qtdPurchased: purchaseUpdate}, user.id);
     alert(`Você acaba de ${titleAction} ${inputQuantity } ${Number(inputQuantity) === 1? 'ação' : 'ações'} dessa empresa!`);
     return history.push('/wallet');
   }

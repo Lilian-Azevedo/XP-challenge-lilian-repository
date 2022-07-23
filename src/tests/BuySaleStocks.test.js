@@ -77,7 +77,7 @@ describe('Teste a página BuySale', () => {
     const totalValue= screen.getByText('R$ 10.866,00');
     expect(totalValueBought && totalValue).toBeTruthy();
   });
-  test.only(`8 - Teste se a página contém um campo que mostra o saldo disponível na conta`, () => {
+  test(`8 - Teste se a página contém um campo que mostra o saldo disponível na conta`, () => {
     const accountBalance=  screen.getByRole('heading', { name: /saldo disponível:/i });
     
     const valueAccount= screen.getByRole('heading', { name: /r\$ 10\.000,00/i })

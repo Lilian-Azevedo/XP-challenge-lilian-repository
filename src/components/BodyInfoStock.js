@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import usePath from '../hooks/usePath';
-
-const convertValue = (total) => {
-  return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(total);
-};
+import { convertedValue } from '../services/functions';
 
 const BodyInfoStock = () => {
   const { sellStocks } = usePath();
@@ -24,7 +21,7 @@ const BodyInfoStock = () => {
           <tr key={ id } className='container-head-buy-sell'>
               <td>{ cd_acao }</td>
               <td>{ qtdPurchased }</td>
-              <td>{ convertValue((Number(vl_fechamento) * Number(qtdPurchased))) }</td>
+              <td>{ convertedValue((Number(vl_fechamento) * Number(qtdPurchased))) }</td>
           </tr>
           ))
         : data
@@ -32,7 +29,7 @@ const BodyInfoStock = () => {
         <tr className='container-head-buy-sell' key={ id }>
             <td>{ cd_acao }</td>
             <td>1</td>
-            <td>{ convertValue(vl_fechamento)}
+            <td>{ convertedValue(vl_fechamento)}
             </td>
         </tr>
         ))

@@ -54,25 +54,30 @@ const removeStockFromLocal = (stock, user) => {
 };
 
 // atualização de ações
-const updateStockToLocal = (stock, user) => {
-  const newUpdate = user.recordsStocks.filter(({ id }) => id !== Number(stock.id));
-  return { ...user, recordsStocks: [...newUpdate, stock] }
+const updateStockToLocal = (newUpdate, user) => {
+  const stocksRec = user.recordsStocks.filter(({ id }) => id !== Number(newUpdate.id));
+  return { ...user, recordsStocks: [...stocksRec, newUpdate] }
 };
 
-export const updateDataUserLocalSt = (type, newUpdate, user) => {
+export const updateDataUserLocalSt = (newUpdate, userID) => {
+  const usersStored = getUsersFromLocal();
+  const userFind = usersStored.find(({ id }) => id === Number(userID));
   if (newUpdate) {
-    if (newUpdate.qtdPurchased === 0) {
-      return removeStockFromLocal(newUpdate, user);
+    console.log(newUpdate.qtdPurchased);
+    if (!newUpdate.qtdPurchased || newUpdate.qtdPurchased === 'null') {
+      return removeStockFromLocal(newUpdate, userFind);
     }
+    
+
     let userUpdated = {};
-    const usersStored= getUsersFromLocal();
-    const findRecord = user[type].find(({ id }) => id === Number(newUpdate.id));
-    if (findRecord) {
-      userUpdated = updateStockToLocal(newUpdate, user);
+    const findRecord = userFind.recordsStocks.find(({ id }) => id === Number(newUpdate.id));
+
+    if (!findRecord) {
+      userUpdated = { ...userFind, recordsStocks: [...userFind.recordsStocks, newUpdate] };
     } else {
-      userUpdated = { ...user, [type]: [...user[type], newUpdate] };
+      userUpdated = updateStockToLocal(newUpdate, userFind);
     }
-    const removeUser = usersStored.filter(userStore => userStore.id !== Number(user.id));
+    const removeUser = usersStored.filter(userStore => userStore.id !== Number(userID));
     setUserToLocal([...removeUser, userUpdated ]);
     addAcessUserToLocal(userUpdated);
   }

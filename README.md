@@ -7,6 +7,20 @@
 
 
 
+# Guia de Páginas
+
+Essa aplicação contém 9 rotas que levam às páginas:
+
+    - [1 - Página Inicial - Home : rota **/**]
+    - [2 - Página de Criação de conta - Create : rota **/create**]
+    - [3 - Página de Login - Login : rota **/login**]
+    - [4 - Página da Carteira de ações - Wallet : rota **/wallet**]
+    - [5 - Página de Compra de uma ação - BuySaleStock : rota **/buy/:id**]
+    - [6 - Página de Venda de uma ação - BuySaleStock : rota **/sell/:id**]
+    - [7 - Página de Depósito/Retirada - WithdrawDeposit : rota **/account**]
+    - [8 - Página de Histórico/Extrato - Historic : rota **/historic**]
+    - [9 - Página de Não Encontrado - NotFound : rota **-**]
+    
 ## Técnologias usadas
 
 Nesse projeto, foi utilizado:

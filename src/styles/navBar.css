@@ -3,6 +3,7 @@
         position: fixed;
         top: 0;
         right: 0;
+        left:0;
         /* width: 100%; */
         background-color:var(--body-color-alt);
         padding: 2rem 1.5rem 4rem;
@@ -81,14 +82,33 @@
     cursor: pointer;
 }
 
-.nav_close  {
-    position: absolute;
-    width: 100%;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--first-color);
-}
+@media screen and (min-width: 768px) {
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .nav {
+        height: calc(var(--header-height) + 1.5rem);
+        column-gap: 1rem;
+    }
+/* 
+    .nav_close,
+    .nav_icon,
+    .nav_toggle {
+        display: none;
+    } */
+    
+    .nav_close {
+        display: none;
+    }
 
-.nav_close:hover {
-    color: var(--first-color-alt);
+    .nav_list {
+        display: flex;
+        column-gap: 2rem;
+    }
+
+    .user_actions {
+        padding-top: 20px;
+    }
 }

@@ -27,6 +27,10 @@ body {
 .card_data {
     text-align: center;
     padding: 0 8px;
+    border: 1px solid var(--first-color);
+    border-radius: 20px;
+    background-color: var(--text-color);
+    opacity: 70%;
 }
 
 .card_title {

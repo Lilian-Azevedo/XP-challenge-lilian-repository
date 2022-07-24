@@ -48,3 +48,7 @@ npm install
   ```
     cd src/ && npm run test
   ```
+
+## Observações
+
+* O aplicativo foi desenvolvido com mobile first, por esse motivo algumas configurações de css responsivo podem estar falhando. Agradeço a compreensão.

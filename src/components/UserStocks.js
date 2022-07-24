@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import * as Unicons from '@iconscout/react-unicons';
 // import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
 // import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 // import '../../node_modules/swiper/swiper-bundle.min.css';
@@ -42,9 +43,12 @@ const UserStocks = () => {
             {recordsUser.map((item, index) => (
               <div key={index}>
                 <Card {...item}/>
-              </div>
-            ))} 
+              </div>))}
         </div>)}
+        { recordsUser.length > 2
+        && <div>
+           <Unicons.UilAlignCenterH size="30" color="#E4B600"/>
+        </div>}
       </section>)}
     </div>
   )

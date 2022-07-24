@@ -13,3 +13,7 @@ const verifyValidation = (info) => {
 }
 
 export default verifyValidation;
+
+// "eslintConfig": {
+  //   "extends": "react-app"
+  // },

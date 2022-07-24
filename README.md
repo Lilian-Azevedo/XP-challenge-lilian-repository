@@ -1,16 +1,12 @@
 # Boas vindas ao repositório do projeto ActionXPerts, espero que tenha uma boa visita!!
 
-
-
-## ~Quase todos~ esses problemas podem ser solucionados com !
 # Contexto
 
-
+Essa aplicação foi desenvolvida como um desafio técnico, envolvendo a parte de Front-end em que uma pessoa usuária pode criar uma conta para compra e venda de ações, a partir de uma lista de ações disponíveis. Dentro da aplicação também pode-se adicionar uma valor para depósito ou retirada, além do histórico dessas transações.
 
 # Guia de Páginas
 
 Essa aplicação contém 9 rotas que levam às páginas:
-
     - [1 - Página Inicial - Home : rota **/**]
     - [2 - Página de Criação de conta - Create : rota **/create**]
     - [3 - Página de Login - Login : rota **/login**]

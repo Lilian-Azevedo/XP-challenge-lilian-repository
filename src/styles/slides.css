@@ -1,4 +1,4 @@
-.swiper {
+/* .swiper {
     padding: 30px;
 }
 
@@ -14,10 +14,27 @@
 .swiper-button-prev,
 .swiper-button-next {
     color: rgb(241, 205, 0);
-}
+} */
 
 .container-stocks-user {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.scrollmenu {
+    background-color: #333;
+    overflow: auto;
+    white-space: nowrap;
+  }
+  
+.scrollmenu div {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+}
+  
+.scrollmenu div:hover {
+    background-color: #777;
 }

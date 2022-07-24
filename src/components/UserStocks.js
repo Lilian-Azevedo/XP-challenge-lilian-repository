@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-import '../../node_modules/swiper/swiper-bundle.min.css';
-import '../../node_modules/swiper/swiper.min.css';
+// import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
+// import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+// import '../../node_modules/swiper/swiper-bundle.min.css';
+// import '../../node_modules/swiper/swiper.min.css';
 import '../styles/slides.css';
 import Card from './Card';
 import { getLastUserAcessFromLocal } from '../services/localStorage';
@@ -38,22 +38,30 @@ const UserStocks = () => {
             <Card  key={ index } {...item}/>))
           }
         </div>
-        :(<Swiper
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
-          spaceBetween={30}
-          slidesPerView={2}
-          navigation
-          pagination={{ clickable: true }}
-          loop={ true }>
+        :(<div className="scrollmenu">
             {recordsUser.map((item, index) => (
-              <SwiperSlide key={index}>
+              <div key={index}>
                 <Card {...item}/>
-              </SwiperSlide>
-            ))}           
-        </Swiper>)}
+              </div>
+            ))} 
+        </div>)}
       </section>)}
     </div>
   )
 }
+
+// (<Swiper
+//   modules={[Navigation, Pagination, Scrollbar, A11y]}
+//   spaceBetween={30}
+//   slidesPerView={2}
+//   navigation
+//   pagination={{ clickable: true }}
+//   loop={ true }>
+//     {recordsUser.map((item, index) => (
+//       <SwiperSlide key={index}>
+//         <Card {...item}/>
+//       </SwiperSlide>
+//     ))}           
+// </Swiper>)
 
 export default UserStocks;

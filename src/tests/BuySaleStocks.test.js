@@ -85,3 +85,8 @@ describe('Teste a página BuySale', () => {
   });
 
 });
+
+
+ // "transformIgnorePatterns": [
+    //   "node_modules/(?!(swiper|ssr-window|dom7))"
+    // ],

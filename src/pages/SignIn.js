@@ -48,6 +48,9 @@ const SignIn = () => {
   return (
     <div className="general-page">
       <div>
+        <h1 className='main-title home-main-title'>XPerts</h1>
+      </div>
+      <div>
         <h1 className='h1-title'>Crie a sua conta!</h1>
       </div>
   

@@ -1,4 +1,4 @@
-# Boas vindas ao repositório do projeto ActionXPerts, espero que tenha uma boa visita!!
+# Boas vindas ao repositório do projeto XPerts, espero que tenha uma boa visita!!
 
 # Contexto
 
@@ -22,10 +22,10 @@ Essa aplicação contém 9 rotas que levam às páginas:
 Nesse projeto, foi utilizado:
 
 * **React** com componentes funcionais.
-* _Redux_ para gerenciar de estado global.
+* _Redux_ para gerenciar estado global.
 * _React Hooks como: useState_, _useEffect_, _useHistory, entre outros ;
 * _React Hooks para comunicação com estado global: _useDispatch_ e _useSelector_;
-*  _React Hook_ customizados: _usePath.
+*  _React Hook_ customizados: _usePath_.
 *  _CSS3_ e _React Testing Library_.
 
 ## Instalando Dependências

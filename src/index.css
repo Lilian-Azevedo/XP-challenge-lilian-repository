@@ -12,7 +12,7 @@
   --first-color-second: hsl(var(--color-define), 30%, 8%);
   --title-color: hsl(var(--color-define), 8%, 95%);
   --text-color: hsl(var(--color-define), 8%, 75%);
-  --body-color: hsl(var(--color-define), 28%, 12%);
+  --body-color: hsl(var(--color-define), 14%, 12%);
 
   --body-color-alt: hsl(var(--color-define), 13%, 20%);
   --container-color: hsl(var(--color-define), 29%, 16%);

@@ -66,6 +66,6 @@ const UserStocks = () => {
 //         <Card {...item}/>
 //       </SwiperSlide>
 //     ))}           
-// </Swiper>)
+// </Swiper>) // gera problema no deploy - comentado para testar novamente depois
 
 export default UserStocks;

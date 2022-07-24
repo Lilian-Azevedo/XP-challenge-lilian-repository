@@ -1,7 +1,7 @@
 # Boas vindas ao repositório do projeto XPerts, espero que tenha uma boa visita!!
 
 <p align="center">
-  <img src="src/assets/xperts.gif" width="460" height="300" alt="Gif de apresentação XPerts">
+  <img src="src/assets/xperts.gif" width="600" height="350" alt="Gif de apresentação XPerts">
 </p>
 
 Deploy da aplicação: https://xperts-challenge-project-8svjqndw4-lilian-azevedo.vercel.app/

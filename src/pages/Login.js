@@ -86,7 +86,7 @@ const Login = () => {
             onKeyDown={ handleEnterClick }
             value={ inputPassword }
             name="inputPassword"
-            placeholder="Senha"
+            placeholder="Senha (mínimo 6 caracteres)"
             autoComplete='off'
           />
           </label>

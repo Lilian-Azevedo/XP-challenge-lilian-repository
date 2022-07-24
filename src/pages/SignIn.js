@@ -62,7 +62,7 @@ const SignIn = () => {
           onKeyDown={ handleEnterClick }
           value={ inputName }
           name="inputName"
-          placeholder="Nome"
+          placeholder="Nome (mínimo 6 caracteres)"
         />
         <input
           type="text"
@@ -81,7 +81,7 @@ const SignIn = () => {
           onKeyDown={ handleEnterClick }
           value={ inputPassword }
           name="inputPassword"
-          placeholder="Senha"
+          placeholder="Senha (mínimo 6 caracteres)"
         />
         </section>
 

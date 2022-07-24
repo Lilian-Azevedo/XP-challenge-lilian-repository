@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import 'swiper/swiper-bundle.min.css';
+import 'swiper/modules/pagination/pagination.min.css'
 import 'swiper/swiper.min.css';
 import '../styles/slides.css';
 import Card from './Card';

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { convertedValue, formatDate, formatDoneDate } from '../services/functions';
 import { getLastUserAcessFromLocal } from '../services/localStorage';
+import '../styles/navBar.css';
 
 const listHead = ['Data', 'Tipo', 'Valor'];
 
@@ -14,7 +15,7 @@ const LastTransations = () => {
   }, []);
 
   return (
-    <div className='actions general-flex'>
+    <div className='actions general-flex space-header'>
         <h1 className='h1-title'>Histórico de transações</h1>
         <table style={{ width:'100vw'}}>
           <thead>

@@ -5,6 +5,7 @@ import * as Unicons from '@iconscout/react-unicons';
 // import '../../node_modules/swiper/swiper-bundle.min.css';
 // import '../../node_modules/swiper/swiper.min.css';
 import '../styles/slides.css';
+import '../styles/navBar.css';
 import Card from './Card';
 import { getLastUserAcessFromLocal } from '../services/localStorage';
 
@@ -19,7 +20,7 @@ const UserStocks = () => {
   }, []);
 
   return (
-    <div className='user-actions'>
+    <div className='user-actions space-header'>
       <div>
         <h1 className='h1-title'>Minhas Ações</h1>
       </div>

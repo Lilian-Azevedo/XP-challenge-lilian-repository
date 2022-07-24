@@ -1,5 +1,9 @@
 # Boas vindas ao repositório do projeto XPerts, espero que tenha uma boa visita!!
 
+<p align="center">
+  <img src="src/assets/xperts.gif" width="460" height="300" alt="Gif de apresentação XPerts">
+</p>
+
 Deploy da aplicação: https://xperts-challenge-project-8svjqndw4-lilian-azevedo.vercel.app/
 # Contexto
 
@@ -52,4 +56,4 @@ npm install
 
 ## Observações
 
-* O aplicativo foi desenvolvido com mobile first, por esse motivo algumas configurações de css responsivo podem estar falhando. Agradeço a compreensão.
+* O aplicativo foi desenvolvido com mobile first, por esse motivo algumas configurações de css responsivo podem estar em andamento ainda.

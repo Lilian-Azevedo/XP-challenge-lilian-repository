@@ -11,8 +11,6 @@ const WalletStocks = () => (
     <div className='actions'>
     <UserStocks />
     <AvailableStocks />
-    {/* <NavBar /> */}
-
     </div>
   </div>
 );

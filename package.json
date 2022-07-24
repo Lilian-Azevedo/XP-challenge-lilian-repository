@@ -29,6 +29,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test-coverage": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js, .jsx"
   },
@@ -69,7 +70,8 @@
     ],
     "coveragePathIgnorePatterns": [
       "src/index.js",
-      "serviceWorker.js"
+      "serviceWorker.js",
+      "reportWebVitals.js"
     ],
     "coverageReporters": [
       "json",

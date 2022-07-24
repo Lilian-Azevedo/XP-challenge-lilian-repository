@@ -25,11 +25,11 @@ const mockAcessLocalSt = { id:527307854426,
 let globalHistory = '';
 
 beforeEach(() => {
-    const { history } = renderWithRouterAndStore(<App />);
+    const { history } = renderWithRouterAndStore(<App />); 
     history.push('/account');
-    globalHistory = history;
     localStorage.setItem('users', JSON.stringify(mockUsersLocalStorage));
     localStorage.setItem('userAcesses', JSON.stringify(mockAcessLocalSt));
+    globalHistory = history;
 });
 afterEach(() => localStorage.clear());
   

@@ -13,7 +13,7 @@ const Card = (infoStock) => {
 
   return (
     <div className="card_data">
-        <h3 className="card_title">{ cd_acao }</h3>
+        <h3 className="card_title" data-testid={cd_acao}>{ cd_acao }</h3>
         <p className="card_description">{ qtdPurchased }</p>
         <p className="card_description">{ convertedValue((Number(vl_fechamento) * Number(qtdPurchased))) }</p>
         <div>

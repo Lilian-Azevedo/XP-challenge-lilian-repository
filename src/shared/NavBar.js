@@ -41,7 +41,12 @@ const NavBar = () => {
               Sair
             </li>
 
-            <li className="nav_item"></li>
+            <li className="nav_item" onClick={() => setShowed(false)}>
+              <Link to="/historic">
+                <Unicons.UilHistory size="30" color="#E4B600" />
+              </Link>
+              Extrato
+            </li>
 
             <li onClick={() => setShowed(false)} className="nav_item" >
               <Unicons.UilMultiply  size="30" color="#E4B600" />

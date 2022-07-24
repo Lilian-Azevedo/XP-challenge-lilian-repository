@@ -7,8 +7,11 @@
 
 .main-title {
     font-size: var(--bigger-font-size);
-    font-family: 'Kalam', sans-serif;
+    font-family: 'Righteous', 'Kalam';
     margin-bottom: var(--mb-2);
+    background: -webkit-linear-gradient(50deg, var(--first-color) 20%,rgb(199, 191, 191));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .home-page {

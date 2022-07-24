@@ -1,25 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { convertedValue, formatDate, formatDoneDate } from '../services/functions';
+import { getLastUserAcessFromLocal } from '../services/localStorage';
 
-const arrayTest = [{ date: '27/03/2022', operationType: 'Depósito', value: 600 }, { date: '15/06/2022', operationType: 'Retirada', value: 200 }];
 const listHead = ['Data', 'Tipo', 'Valor'];
 
 const LastTransations = () => {
+  const [userOp, setUserOp] = useState([]);
+  useEffect(() => {
+    const user = getLastUserAcessFromLocal();
+    if (user.financialTransactions) {
+      setUserOp(user.financialTransactions);
+    }
+  }, []);
+
   return (
-    <div className='actions'>
+    <div className='actions general-flex'>
         <h1 className='h1-title'>Histórico de transações</h1>
-        <table>
+        <table style={{ width:'100vw'}}>
           <thead>
             <tr>
-            {listHead.map(item => (<th>{ item }</th>))}
+            {listHead.map(item => (<th className='list-thead' key={item}>{ item }</th>))}
             </tr>
           </thead>
           <tbody>
-            {arrayTest
-                .map(({ date, operationType, value }, index) => (
+            {userOp
+                .map(({ donedAt, type, value }, index) => (
                 <tr key={ index }>
-                    <td>{ date }</td>
-                    <td>{ operationType }</td>
-                    <td>{ value }</td>
+                    <td>{ formatDate(donedAt) }</td>
+                    <td>{ type }</td>
+                    <td>{ convertedValue(value) }</td>
                 </tr>
                 ))}
           </tbody>

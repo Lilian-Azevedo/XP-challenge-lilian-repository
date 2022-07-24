@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { saveAccountBalance } from '../redux/actions';
+import { transformToJSValue } from '../services/functions';
 import { addDepositWithdtoLocal, getLastUserAcessFromLocal } from '../services/localStorage';
 import '../styles/withdrDeposit.css';
 
@@ -19,12 +20,13 @@ const WithdrawalDeposit = () => {
   const handleClick = () => {
     const { accountBalance, id } = user;
     let newAccountBalance = 0;
+    const transformValue = transformToJSValue(inputValue);
     if (operationType === 'Depósito') {
-      addDepositWithdtoLocal({ type: 'Depósito', value: inputValue}, id);
-      newAccountBalance = accountBalance + Number(inputValue);
+      addDepositWithdtoLocal({ type: 'Depósito', value: transformValue}, id);
+      newAccountBalance = accountBalance + Number(transformValue);
     } else {
-      addDepositWithdtoLocal({ type: 'Retirada', value: inputValue}, id);
-      newAccountBalance = accountBalance - Number(inputValue);
+      addDepositWithdtoLocal({ type: 'Retirada', value: transformValue}, id);
+      newAccountBalance = accountBalance - Number(transformValue);
     }
     dispatch(saveAccountBalance(newAccountBalance));
     history.push('/historic');
@@ -38,7 +40,9 @@ const WithdrawalDeposit = () => {
   useEffect(() => {
     const user = getLastUserAcessFromLocal();
     setUser(user);
-    dispatch(saveAccountBalance(user.accountBalance ? user.accountBalance : 0));
+    if (user) {
+      dispatch(saveAccountBalance(user.accountBalance ? user.accountBalance : 0));
+    }
   }, []);
   
   return (

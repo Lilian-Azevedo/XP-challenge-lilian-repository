@@ -15,6 +15,16 @@ const newRecord = {
     updated_at:'2021-10-22T17:19:02.000000Z',qtdPurchased:12
 };
 
+const mockRecordsUsersLocalStorage = [{
+  id:527307854426,
+  name:'Lilian',
+  email: 'lili@test.com',
+  createdAt: '2022-07-21T03:35:54.648Z',
+  accountBalance: 10000,
+  recordsStocks:[newRecord],
+  financialTransactions:[{id: 1302846715987, donedAt: '2022-07-21T03:35:54.648Z', value:10000 }]
+}];
+
 const mockUsersLocalStorage = [{
     id:527307854426,
     name:'Lilian',
@@ -73,5 +83,16 @@ describe('Teste a página Wallet', () => {
     const stockFind2 = screen.getByRole('row', { name: /radl3 1 114\.83 comprar/i });
     const stockFind3 = screen.getByRole('row', { name: /pepb34 1 547\.15 comprar/i });
     expect(stockFind1 && stockFind2 && stockFind3).toBeTruthy();
+  });
+  test('6 - Teste se a página contém uma lista com ações que foram compradas pelo user', () => {
+    renderWithRouterAndStore(<App />);
+    const newMockAcess = { ...mockAcessLocalSt, recordsStocks : [newRecord]};
+   
+
+    localStorage.setItem('users', JSON.stringify(mockRecordsUsersLocalStorage));
+    localStorage.setItem('userAcesses', JSON.stringify(newMockAcess));
+
+    const stockFind1 = screen.getByRole('heading', { name: /GUAR3/i });
+    expect(stockFind1).toBeTruthy();
   });
 });

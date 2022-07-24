@@ -1,5 +1,6 @@
 # Boas vindas ao repositório do projeto XPerts, espero que tenha uma boa visita!!
 
+Deploy da aplicação: https://xperts-challenge-project-8svjqndw4-lilian-azevedo.vercel.app/
 # Contexto
 
 Essa aplicação foi desenvolvida como um desafio técnico, envolvendo a parte de Front-end em que uma pessoa usuária pode criar uma conta para compra e venda de ações, a partir de uma lista de ações disponíveis. Dentro da aplicação também pode-se adicionar uma valor para depósito ou retirada, além do histórico dessas transações.
@@ -7,15 +8,15 @@ Essa aplicação foi desenvolvida como um desafio técnico, envolvendo a parte d
 # Guia de Páginas
 
 Essa aplicação contém 9 rotas que levam às páginas:
-    - [1 - Página Inicial - Home : rota **/**]
-    - [2 - Página de Criação de conta - Create : rota **/create**]
-    - [3 - Página de Login - Login : rota **/login**]
-    - [4 - Página da Carteira de ações - Wallet : rota **/wallet**]
-    - [5 - Página de Compra de uma ação - BuySaleStock : rota **/buy/:id**]
-    - [6 - Página de Venda de uma ação - BuySaleStock : rota **/sell/:id**]
-    - [7 - Página de Depósito/Retirada - WithdrawDeposit : rota **/account**]
-    - [8 - Página de Histórico/Extrato - Historic : rota **/historic**]
-    - [9 - Página de Não Encontrado - NotFound : rota **-**]
+* 1 - Página Inicial - Home : rota **/**
+* 2 - Página de Criação de conta - Create : rota **/create**
+* 3 - Página de Login - Login : rota **/login**
+* 4 - Página da Carteira de ações - Wallet : rota **/wallet**
+* 5 - Página de Compra de uma ação - BuySaleStock : rota **/buy/:id**
+* 6 - Página de Venda de uma ação - BuySaleStock : rota **/sell/:id**
+* 7 - Página de Depósito/Retirada - WithdrawDeposit : rota **/account**
+* 8 - Página de Histórico/Extrato - Historic : rota **/historic**
+* 9 - Página de Não Encontrado - NotFound : rota **-**
     
 ## Técnologias usadas
 

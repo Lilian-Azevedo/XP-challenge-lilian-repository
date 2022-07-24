@@ -38,8 +38,8 @@
 .button--small {
     font-weight: var(--font-medium);
     cursor:pointer;
-    background-color: var(--first-color);
-    color: var(--body-color);
+    /* background-color: var(--first-color);
+    color: var(--body-color); */
     padding: 5px 10px;
     border: 1px solid var(--text-color);
     margin-bottom: var(--mb-0-5);

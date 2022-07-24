@@ -29,7 +29,7 @@ body {
     padding: 0 8px;
     border: 1px solid var(--first-color);
     border-radius: 20px;
-    background-color: var(--text-color);
+    /* background-color: var(--text-color); */
     opacity: 70%;
 }
 
@@ -42,4 +42,7 @@ body {
     margin-bottom: var(--mb-0-75);
 }
 
-
+.button-color-general {
+    background-color: var(--first-color);
+    color: var(--body-color);
+}

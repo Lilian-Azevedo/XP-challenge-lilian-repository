@@ -47,7 +47,7 @@ const AvailableStocks = () => {
                   <td>{ vl_fechamento }</td>
                   <td>
                   <button
-                    className='button--small'
+                    className='button--small button-color-general'
                     id={ id }
                     type="button"
                     onClick={ handleClick }

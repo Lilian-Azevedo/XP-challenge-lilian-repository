@@ -17,7 +17,7 @@ const Card = (infoStock) => {
         <p className="card_description">{ qtdPurchased }</p>
         <p className="card_description">{ convertedValue((Number(vl_fechamento) * Number(qtdPurchased))) }</p>
         <div>
-          <button className="button--small" onClick={() => saveStock(`/buy/${id}`)}>
+          <button className="button--small button-color-general" onClick={() => saveStock(`/buy/${id}`)}>
             C
           </button>
           <button className="button--small" onClick={() => saveStock(`/sell/${id}`)}>

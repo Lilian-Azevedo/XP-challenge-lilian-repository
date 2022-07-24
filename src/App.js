@@ -27,5 +27,3 @@ function App() {
 }
 
 export default App;
-
-// "test-coverage": "react-scripts test --coverage --watchAll=false",

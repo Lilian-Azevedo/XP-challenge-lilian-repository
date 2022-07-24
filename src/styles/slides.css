@@ -31,7 +31,7 @@
   
 .scrollmenu div {
     display: inline-block;
-    color: var(--body-color);
+    /* color: var(--body-color); */
     /* color: var(--text-color); */
     text-align: center;
     padding: 0 10px;
